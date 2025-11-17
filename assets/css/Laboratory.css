@@ -1,12 +1,13 @@
 
 :root {
+  --bg: url("https://github.com/Bulanadi-MarkLorence-04/7OOP-Porfolio1.0/blob/main/assets/pics/fut%5B1%5D.gif?raw=true");
   --muted: #9aa4b2;
   --accent: #6ee7b7;
 }
  
 body {
   font-family: Inter, system-ui, sans-serif;
-  background: url("assets/pics/fut[1].gif");
+  background: var(--bg);
   background-size: cover;      /* make the GIF fill the whole screen */
   background-position: center; /* center the GIF */
   background-repeat: no-repeat; /* no repeating tiles */
