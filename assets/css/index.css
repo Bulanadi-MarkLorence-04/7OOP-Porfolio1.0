@@ -111,14 +111,11 @@ main {
 }
 
 .card {
-  background-color: #4A4C52; /* dark gray card background */
-  color: #AEEFFF;            /* light cyan text */
-  border-radius: 15px;       /* round corners */
+  background-color: #4A4C52; 
+  border-radius: 15px;      
   padding: 20px;
-  margin: 20px auto;
-  width: 300px;              /* optional width */
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* subtle shadow */
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
+ 
 }
 
 .section-title {
