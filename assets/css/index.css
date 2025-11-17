@@ -81,7 +81,7 @@ nav {
 
 .chip {
   padding: 8px 12px;
-  background: #c1d7e6;
+  background: #07092b;
   border-radius: 16px;
   cursor: pointer;
   color: var(--card);
@@ -90,7 +90,7 @@ nav {
 }
 
 .chip:hover, .chip:focus-visible {
-  background: #c1d7e6;
+  background: var(--accent);
   color: var(--card);
   outline: none;
 }
@@ -102,7 +102,7 @@ nav {
 }
 
 .chip a:hover {
-  color:#c1d7e6;
+  color:var(--card);
 }
 
 main {
