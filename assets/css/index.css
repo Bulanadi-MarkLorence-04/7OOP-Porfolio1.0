@@ -33,12 +33,11 @@ header {
 }
 
 .avatar {
-  width: 120px;
-  height: 120px;
-  border-radius: 12px;
-  overflow: hidden;
-  flex-shrink: 0;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+ width: 150px;         
+  height: 150px;        
+  border-radius: 50%;  
+  object-fit: cover;    
+  border: 3px solid #333;
 }
 
 .avatar img {
