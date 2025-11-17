@@ -213,6 +213,16 @@ footer {
   height: 12px;
 }
 
+.code-box {
+  background: #1e293b;
+  padding: 15px;
+  border-radius: 8px;
+  overflow: auto;
+  max-height: 250px;
+  font-family: monospace;
+  margin: 10px 0;
+}
+
 html {
   scroll-behavior: smooth;
 }
