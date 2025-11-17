@@ -1,5 +1,6 @@
 
 :root {
+  --bg:  url("https://github.com/Bulanadi-MarkLorence-04/7OOP-Porfolio1.0/blob/main/assets/pics/fut%5B1%5D.gif?raw=true");
   --card: #0b1220;
   --muted: #9aa4b2;
   --accent: #6ee7b7;
@@ -15,7 +16,7 @@ body {
   margin: 0;
   color: #e6eef6;
   line-height: 1.5;
-  background: url("assets/pics/fut[1].gif");
+  background: var(--bg);
   background-size: cover;      /* make the GIF fill the whole screen */
   background-position: center; /* center the GIF */
   background-repeat: no-repeat; /* no repeating tiles */
