@@ -81,10 +81,10 @@ nav {
 
 .chip {
   padding: 8px 12px;
-  background: var(--card);
+  background: #c1d7e6;
   border-radius: 16px;
   cursor: pointer;
-  color: var(--muted);
+  color: var(--card);
   font-size: 13px;
   transition: background 0.3s ease, color 0.3s ease;
 }
