@@ -17,6 +17,11 @@ body {
   background: linear-gradient(180deg, var(--bg), #081020);
   color: #e6eef6;
   line-height: 1.5;
+  background: url("assets/pics/fut[1].gif");
+  background-size: cover;      /* make the GIF fill the whole screen */
+  background-position: center; /* center the GIF */
+  background-repeat: no-repeat; /* no repeating tiles */
+  background-attachment: fixed; /* optional: keeps background still when scrolling */
 }
 
 .container {
