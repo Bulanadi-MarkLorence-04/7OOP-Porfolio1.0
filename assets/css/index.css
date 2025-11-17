@@ -8,7 +8,7 @@
 }
 
 * {
-  box-sizing: border-round;
+  box-sizing: border-box;
 }
 
 body {
