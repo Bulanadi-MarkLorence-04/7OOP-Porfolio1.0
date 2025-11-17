@@ -90,8 +90,8 @@ nav {
 }
 
 .chip:hover, .chip:focus-visible {
-  background: var(--accent);
-  color: var(--bg);
+  background: #c1d7e6;
+  color: var(--card);
   outline: none;
 }
 
@@ -102,7 +102,7 @@ nav {
 }
 
 .chip a:hover {
-  color: var(--bg);
+  color:#c1d7e6;
 }
 
 main {
