@@ -12,6 +12,10 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.6;
+  background-size: cover;      /* make the GIF fill the whole screen */
+  background-position: center; /* center the GIF */
+  background-repeat: no-repeat; /* no repeating tiles */
+  background-attachment: fixed
 }
 
 .container {
