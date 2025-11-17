@@ -100,3 +100,24 @@ footer {
   font-family: monospace;
   margin: 10px 0;
 }
+.laboratory {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* spacing between cards */
+  margin-top: 20px;
+}
+
+.lab-item {
+  background-color: var(--card);  /* uses your card variable #07092b */
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  color: #e6eef6; /* readable text */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Optional: Glow or hover effect */
+.lab-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px 5px rgba(110, 231, 183, 0.7); /* using your accent color */
+}
