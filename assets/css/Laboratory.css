@@ -1,13 +1,17 @@
 
 :root {
-  --bg: #0f1724;
   --muted: #9aa4b2;
   --accent: #6ee7b7;
 }
  
 body {
   font-family: Inter, system-ui, sans-serif;
-  background: var(--bg);
+  background: url("assets/pics/fut[1].gif");
+  background-size: cover;      /* make the GIF fill the whole screen */
+  background-position: center; /* center the GIF */
+  background-repeat: no-repeat; /* no repeating tiles */
+  background-attachment: fixed; /* optional: keeps background still when scrolling */
+}
   color: #e6eef6;
   margin: 0;
   padding: 0;
