@@ -233,7 +233,7 @@ html {
 }
 
 .glow {
-  animation: glowEffect 1s ease-in-out 2;
+  animation: 0 0 20px 5px rgba(76, 175, 80, 0.9); 
 }
 
 @keyframes glowEffect {
