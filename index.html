@@ -137,5 +137,15 @@
     </footer>
   </div>
  <script src="assets/js/index.js"></script>
+<script>
+    function highlightCard() {
+      const card = document.getElementById('infoCard');
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      card.classList.add('glow');
+      setTimeout(() => {
+        card.classList.remove('glow');
+      }, 2000);
+    }
+  </script>
 </body>
 </html>
