@@ -1,0 +1,270 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Midterm Paired Task 1 - Justine Jay Tayting</title>
+  <link rel="stylesheet" href="../assets/css/labs.css">
+  <link rel="icon" href="../assets/images/favicon.png" type="image/png">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a class="back" href="https://tayting05.github.io/7OOP-Lab-Task/index.html">← Back to Portfolio</a>
+      <h1>Midterm Paired Task 1</h1>
+      <p class="muted">Object Oriented Analysis and Design</p>
+    </header>
+
+    <section>
+      <h2>Problem Statement</h2>
+      <p><strong>Tiny Hospital</strong> keeps information on <strong>patients</strong> and <strong>hospital rooms</strong>. The system assigns each patient a unique ID number. In addition, the patient’s name and date of birth are recorded. Some patients are resident patients (they spend at least one night in the hospital), while others are outpatients (they are treated and released).</p>
+      <p>Resident patients are assigned to a room. Each room is identified by a room number, type (private or semi-private), and fee. Over time, each room will have many patients who stay in it. Each resident patient will stay in only one room. The hospital system can view patient information and check whether a room is occupied or not. Both patient and room entities allow adding, updating, and searching records.</p>
+    </section>
+
+    <section>
+      <h2>Step 1. Identify Objects</h2>
+      <ul>
+        <li>Patient</li>
+        <li>Resident Patient</li>
+        <li>OutPatient</li>
+        <li>Hospital Room</li>
+        <li>Hospital Flow</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Step 2. Identify Properties and Methods</h2>
+      <p class="muted">Objects with their properties and behaviors:</p>
+      <h3>Patient</h3>
+      <ul>
+        <li>patientID – <em>addPatient()</em></li>
+        <li>name – <em>updatePatient()</em></li>
+        <li>dateOfBirth – <em>searchPatientinfo()</em></li>
+        <li>patientType – <em>getPatientinfo()</em></li>
+      </ul>
+
+      <h3>Resident Patient</h3>
+      <ul>
+        <li>roompatient – <em>assignRoom()</em></li>
+      </ul>
+
+      <h3>OutPatient</h3>
+      <ul>
+        <li><em>discharge()</em></li>
+      </ul>
+
+      <h3>Hospital Room</h3>
+      <ul>
+        <li>roomNumber</li>
+        <li>roomType – <em>assignPatient()</em></li>
+        <li>roomFee – <em>releasePatient()</em></li>
+        <li>occupied – <em>isOccupied()</em></li>
+      </ul>
+
+      <h3>Hospital Flow</h3>
+      <ul>
+        <li>patientList – <em>addPatient()</em></li>
+        <li>roomList – <em>updatePatient()</em></li>
+        <li><em>searchPatient()</em></li>
+        <li><em>viewPatient()</em></li>
+        <li><em>viewRstat()</em></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Step 3. Design the Model</h2>
+      <p class="muted">Class Diagram (created using draw.io):</p>
+      <img src="https://github.com/tayting05/7OOP-Lab-Task/blob/main/assets/images/Midterm%20-%20Task%201%20Class%20Diagram%201.png?raw=true" alt="Class Diagram">
+    </section>
+
+    <section>
+      <h2>Step 4. Implement the Classes</h2>
+      <p class="muted">Java class implementation and methods codes:</p>
+      <p>Patient Class</p>
+<div class="code-box">
+  <pre><code>
+class Patient {
+    int patientID;
+    String name;
+    Date dateOfBirth;
+    String patientType;
+
+    public Patient(int patientID, String name, Date dateOfBirth, String patientType) {
+        this.patientID = patientID;
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+        this.patientType = patientType;
+    }
+
+    public void updatePatient(String name, Date dob) {
+        this.name = name;
+        this.dateOfBirth = dob;
+    }
+
+    public String getPatientInfo() {
+        return "ID: " + patientID + ", Name: " + name + ", DOB: " + dateOfBirth + ", Type: " + patientType;
+    }
+}
+  </code></pre>
+</div>
+      <p>HosRoom Class</p>
+      <div class="code-box">
+        <pre><code>
+class HosRoom {
+    int roomNumber;
+    String roomType;
+    double roomFee;
+    boolean occupied = false;
+
+    public HosRoom(int roomNumber, String roomType, double roomFee) {
+        this.roomNumber = roomNumber;
+        this.roomType = roomType;
+        this.roomFee = roomFee;
+    }
+
+    public void assignPatient(Patient p) {
+        occupied = true;
+        System.out.println("Room " + roomNumber + " assigned to patient " + p.name);
+    }
+
+    public void releasePatient() {
+        occupied = false;
+        System.out.println("Room " + roomNumber + " is now available.");
+    }
+
+    public boolean isOccupied() {
+        return occupied;
+    }
+}
+        </code></pre>
+      </div>
+            <p>ResPatient Class (Extends Patient)</p>
+      <div class="code-box">
+        <pre><code>
+class ResPatient extends Patient {
+    int roomPatient;
+
+    public ResPatient(int patientID, String name, Date dob, int roomPatient) {
+        super(patientID, name, dob, "Resident");
+        this.roomPatient = roomPatient;
+    }
+
+    public void assignRoom(HosRoom room) {
+        this.roomPatient = room.roomNumber;
+        room.assignPatient(this);
+    }
+}
+        </code></pre>
+      </div>
+            <p>OutPatient Class (Extends Patient)</p>
+      <div class="code-box">
+        <pre><code>
+class OutPatient extends Patient {
+    public OutPatient(int patientID, String name, Date dob) {
+        super(patientID, name, dob, "Outpatient");
+    }
+
+    public void discharge() {
+        System.out.println(name + " has been discharged.");
+    }
+}
+        </code></pre>
+      </div>
+            <p>HosFlow Class</p>
+      <div class="code-box">
+        <pre><code>
+class HosFlow {
+    List<Patient> patients = new ArrayList<>();
+    List<HosRoom> rooms = new ArrayList<>();
+
+    public void addPatient(Patient p) {
+        patients.add(p);
+    }
+
+    public void updatePatient(int id, String newName, Date newDob) {
+        for (Patient p : patients) {
+            if (p.patientID == id) {
+                p.updatePatient(newName, newDob);
+                System.out.println("Updated patient " + id);
+                return;
+            }
+        }
+        System.out.println("Patient not found.");
+    }
+
+    public Patient searchPatient(int id) {
+        for (Patient p : patients) {
+            if (p.patientID == id) {
+                return p;
+            }
+        }
+        return null;
+    }
+
+    public void viewPatient(int id) {
+        Patient p = searchPatient(id);
+        if (p != null) {
+            System.out.println(p.getPatientInfo());
+        } else {
+            System.out.println("Patient not found.");
+        }
+    }
+
+    public void viewRstat(int roomNumber) {
+        for (HosRoom r : rooms) {
+            if (r.roomNumber == roomNumber) {
+                System.out.println("Room " + r.roomNumber + " occupied: " + r.isOccupied());
+                return;
+            }
+        }
+        System.out.println("Room not found.");
+    }
+}
+        </code></pre>
+      </div>
+            <p>Main</p>
+      <div class="code-box">
+        <pre><code>
+public static void main(String[] args) {
+    HosFlow system = new HosFlow();
+
+    HosRoom room101 = new HosRoom(101, "Private", 1500.0);
+    HosRoom room102 = new HosRoom(102, "Semi-Private", 1000.0);
+    
+    system.rooms.add(room101);
+    system.rooms.add(room102);
+
+    ResPatient rp = new ResPatient(1, "Juan Dela Cruz", new Date(), 0);
+    OutPatient op = new OutPatient(2, "Maria Clara", new Date());
+    
+    system.addPatient(rp);
+    system.addPatient(op);
+
+    rp.assignRoom(room101); 
+
+    system.viewPatient(1);
+    system.viewPatient(2);
+
+    system.viewRstat(101);
+    system.viewRstat(102);
+
+    op.discharge();
+
+    room101.releasePatient();
+    
+    system.viewRstat(101);
+}
+        </code></pre>
+      </div>
+      <p><a class="btn" href="https://github.com/tayting05/7OOP-Lab-Task/blob/main/Activities/act-pdf/TAYTING-MIDTERMLAB1.pdf" target="_blank">View PDF Here</a></p>
+      <p><a class="btn" href="https://raw.githubusercontent.com/tayting05/7OOP-Lab-Task/refs/heads/main/source-code/midterm-pairedtask1-problem1.java" target="_blank">View Full Code on GitHub</a></p>
+    </section>
+
+
+    <footer>
+      Aug 23, 2025 Justine Jay Tayting | Object-Oriented Programming Portfolio
+    </footer>
+  </div>
+</body>
+</html>
