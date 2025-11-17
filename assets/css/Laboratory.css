@@ -1,6 +1,7 @@
 
 :root {
   --bg: url("https://github.com/Bulanadi-MarkLorence-04/7OOP-Porfolio1.0/blob/main/assets/pics/fut%5B1%5D.gif?raw=true");
+  --card:  #07092b;
   --muted: #9aa4b2;
   --accent: #6ee7b7;
 }
@@ -62,6 +63,14 @@ img {
   width: 100%;
   border-radius: 10px;
   margin: 10px 0;
+}
+
+.card {
+  background-color: #07092b; 
+  border-radius: 15px;      
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
+ 
 }
 
 .btn {
