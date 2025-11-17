@@ -152,7 +152,7 @@ main {
   margin: 6px 6px 0 0;
 }
 
-.labs {
+.laboratory {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 12px;
