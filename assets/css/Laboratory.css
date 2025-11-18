@@ -5,8 +5,14 @@
   --card: #F1F4FF;
   --glass: rgba(10, 20, 60, 0.55);
   --border-light: rgba(0, 200, 255, 0.15);
+  --user: #FF6EC7; 
 }
 
+.user {
+  color: var(--user);
+  font-weight: normal;
+  font-decoration: underline;
+}
 /* Body & container */
 body {
   font-family: "Inter", system-ui, sans-serif;
