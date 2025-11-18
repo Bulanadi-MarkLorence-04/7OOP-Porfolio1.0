@@ -1,0 +1,202 @@
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Midterm Lab Task 1 | Bulanadi, Mark Lorence</title>
+  <link rel="stylesheet" href="../assets/css/Laboratory.css">
+  <link rel="icon" href="../assets/pics/bulanadiProf.png" type="image/png">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a class="back" href="https://bulanadi-marklorence-04.github.io/7OOP-Porfolio1.0/index.html">← Back to Portfolio</a>
+      <h1>Midterm Lab Task 1</h1>
+      <p class="muted">Escape sequence, User input, Placeholders, and Conditional (Problems 1–4)</p>
+    </header>
+
+    <section>
+      <h2>Problem #1</h2>
+      <p class="muted">Displays basic user information using print statements.</p>
+      <h2>Code</h2>
+      <div class="code-box">
+        <pre><code>
+print("Problem 1\n")
+full_name = "John Doe"
+_email = "johndoe@example.com"
+univer_sity = "ABC University"
+          
+print("Name:\t\t\t", full_name)
+print("Email:\t\t\t"_email)
+print("University:\t\t", univer_sity)
+        </code></pre>
+      </div>   
+      <h2>Output</h2>
+      <div class="code-box">
+        <pre><code>
+Database Record
+Name:                    John Doe
+Email:                   john.doe@example.com
+University:              ABC University
+        </code></pre>
+      </div>    
+    </section>
+
+    <section>
+      <h2>Problem #2</h2>
+      <p class="muted">Shows how to use variables, strings, and formatted output.</p>
+      <h2>Code</h2>
+      <div class="code-box">
+        <pre><code>
+receiver_name = "John"
+sender name = "Jane"
+subject = "Greetings"
+version = 1.2
+discount = 10.5
+status = "A"
+code = "ABCD123"
+location = "City XYZ"
+age = 30
+company = "ABC Corporation"
+website = "www.example.com"
+phone = "+1 123-456-7890"
+job_title = "Software Engineer"
+department = "Engineering"
+          
+message = """
+Dear %s, I hope this email finds you well.
+I wanted to reach out and say hello.
+I hope you are doing well and enjoying your day.
+It's been a while since we last spoke, and I wanted to catch up with you.
+Let's plan to meet up soon and have a great time together!
+Subject: %s
+Sender: %s
+Version: %.1f
+Discount: %.2f%%
+Status: %s
+Code: %s
+Location: %s
+Age: %d
+Company: %s
+Website: %s
+Phone: %s
+Job Title: %s
+Department: %s
+""" % (receiver_name, subject, sender_name, version, discount, status, code, location, age, company, website, phone, job_title, department)
+print(message)
+        </code></pre>
+      </div>
+      <h2>Output</h2>
+      <div class="code-box">
+        <pre><code>
+Dear John,I hope this email finds you well.
+I wanted to reach out and say hello.
+I hope you are doing well and enjoying your day.
+It's been a while since we last we spoke, and I wanted to catch up with you.
+Let's plan to meet up soon and have a great time together! 
+Subject: Jane
+Version: 1.2
+Discount: 10.50%
+Status: A
+Code: ABCD123
+Location: City XYZ
+Age: 30
+Company: ABC Corporation
+Website:www.example.com
+Phone: +1 123-456-7890
+Job Tittle: Software Engineer
+Department: Engineering
+        </code></pre>
+      </div> 
+    </section>
+
+    <section>
+      <h2>Problem #3</h2>
+      <p class="muted">Demonstrates input collection and string formatting for displaying book information.</p>
+      <h2>Code</h2>
+      <div class="code-box">
+        <pre><code>
+title = input("Enter the name of the Book:")
+author = input("Enter the name of the Author:")
+year_publication = int(input("Enter the Year of Publication:"))
+genre = input("Enter the Genre of the Book:")
+library = input("Enter the name of the Library:")
+member_id = input("Enter you Member ID:")
+return_date = input("Enter the Book Return Date:")
+          
+print(f"You have successfully reserve the book '{title}' by (author}")
+print("Year of Publication: %s" %year_publication)
+print("Genre: %s" %genre)
+print("Library: %s" %library)
+print("Member 10: %s" %member_id)
+print("Return Date: %s" %return_date)
+print("\n")
+        </code></pre>
+      </div>
+      <h2>Outputs</h2>
+      <div class="code-box">
+        <pre><code>
+Enter the name of the Book: <span class="user">Harry Potter</span><span class="user"></span>
+Enter the name of the Author: <span class="user">Enzo Bulanadi</span>
+Enter the Year of Publication: <span class="user">2009</span>
+Enter the Genre of the Book: <span class="user">Fiction</span>
+Enter the name of the Library: <span class="user">CCA Library</span>
+Enter you Member ID: <span class="user">454545</span>
+Enter the Book Return Date: <span class="user">2025-07-27</span>
+You have successfully reserve the book 'Harry Potter' by Enzo Bulanadi
+Year of Publication: 2009
+Genre: Fiction
+Library: CCA Library
+Member ID: 454545
+Return Date: 2025-07-27
+        </code></pre>
+      </div>
+    </section>
+
+    <section>
+      <h2>Problem #4</h2>
+      <p class="muted">Shows conditional statements to display the day of the week based on user input.</p>
+      <h2>Code</h2>
+      <div class="code-box">
+        <pre><code>
+print("Problem 4\n")
+print("Enter number form 1-7 to view the corresponding day")
+day = int(input("Enter day: "))
+if day == 1:
+print("Monday")
+elif day == 2:
+print("Tuesday")
+elif day == 3:
+print("Wednesday")
+elif day == 4:
+print("Thursday")
+elif day == 5:
+print("Friday")
+elif day == 6:
+print("Saturday")
+elif day == 7:
+print("Sunday")
+elif day<=8:
+print("Invalid input please Enter 1-7")
+        </code></pre>
+      </div>
+      <h2>Outputs</h2>
+      <div class="code-box">
+        <pre><code>
+Problem 4
+Enter number form 1-7 to view the corresponding day
+Enter day: <span class="user">5</span>
+Friday
+        </code></pre>
+      </div>
+     </section>
+     <a href="" target="_blank" class="btn"> View PDF Here</a>
+
+    <footer>
+      Aug 30, 2025 Bulanadi, Mark Lorence | Object-Oriented Programming Portfolio
+    </footer>
+  </div>
+</body>
+</html>
