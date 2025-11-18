@@ -1,1 +1,117 @@
 
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Final Lab Task 3 | Bulanadi, Mark Lorence</title>
+  <link rel="stylesheet" href="../assets/css/Laboratory.css">
+  <link rel="icon" href="../assets/pics/bulanadiProf.png" type="image/png"> 
+</head>
+<body>
+  <div class="container">
+    <header>
+       <h1>Final Lab Task 3</h1>
+       <p class="muted"><strong>Polymorphism</strong></p>
+    </header>
+
+    <section>
+      <h2>Problem #1: Chirp and Tweet</h2>
+      <p>Create a simple program to demonstrate basic polymorphism with bird sounds.
+<br><strong>Class Bird:</strong><br>
+Methods:<br>
+* def make sound(self) -> None: An abstract method that represents making a sound. It doesn't have a specific implementation in the base class Bird.<br>
+<br><strong>Class Sparrow (extends Bird):</strong><br>
+Methods:<br>
+* def make sound(self) -> None: Overrides the make_sound method from the base class Bird. It prints the sound "Chirp Chirp" when called.<br>
+<br><strong>Class Parrot (extends Bird):</strong><br>
+Methods:<br>
+* def make sound(self) > None: Overrides the make_sound method from the base class Bird. It prints the sound "Tweet Tweet" when called.<br>
+<br><strong>Class BirdCage:</strong><br>
+Methods:<br>
+* def make bird_sounds(self, birds: List) > None: Accepts a list of Bird objects as input. Iterates through the list of birds and calls the make_sound method on each bird to make its sound.<br>
+<br>Note:<br>
+The test cases are not outputs of your main file but of a hidden test file. Create and implement the classes instructed to test your code.<br>
+Each class should be defined in its own file, with the file name following camelCase conventions (e.g., bankAccount.py).<br></p>
+      
+    </section>
+
+    <section>
+      <h3>Code for main.py File</h3>
+<div class="code-box">
+  <pre><code>
+    
+from Sparrow import Sparrow
+from Parrot import Parrot
+from BirdCage import BirdCage
+
+sparrow = Sparrow()
+parrot = Parrot()
+print(f"Sparrow says: {sparrow.make_sound()}")
+print(f"Parrot says: {parrot.make_sound()}")
+
+bird_cage = BirdCage()
+birds = [sparrow, parrot]
+cage_sounds = bird_cage.make_bird_sounds(birds)
+print(f"Bird cage sounds: {cage_sounds}")
+
+  </code></pre>
+</div>
+      <h3>Code for Bird.py File</h3>
+      <div class="code-box">
+        <pre><code>
+class Bird:
+    def make_sound(self):
+        return None 
+        </code></pre>
+      </div>
+
+      <h3>Code for Sparrow.py File</h3>
+      <div class="code-box">
+        <pre><code>
+from Bird import Bird
+
+class Sparrow(Bird):
+    def make_sound(self):
+        return "Chirp Chirp"
+        </code></pre>
+      </div>
+         <h3>Code for Parrot.py File</h3>
+      <div class="code-box">
+        <pre><code>
+from Bird import Bird
+
+class Parrot(Bird):
+    def make_sound(self):
+        return "Tweet Tweet"
+        </code></pre>
+      </div>
+        <h3>Code for BirdCage.py File</h3>
+      <div class="code-box">
+        <pre><code>
+class BirdCage:
+    def make_bird_sounds(self, birds):
+        sounds = []
+        for bird in birds:
+            sounds.append(bird.make_sound())
+        return sounds
+        </code></pre>
+      </div>
+           <h3>Output</h3>
+      <div class="code-box">
+        <pre><code>    
+Sparrow says: Chirp Chirp
+Parrot says: Tweet Tweet
+Bird cage sounds: ['Chirp Chirp', 'Tweet Tweet']
+        </code></pre>
+      </div>
+    </section>
+      <a class="btn" href="https://bulanadi-marklorence-04.github.io/7OOP-Porfolio1.0/index.html">← Back to Portfolio</a>
+    <footer>
+      Nov 19, 2025 Bulanadi, Mark Lorence | Object-Oriented Programming Portfolio
+    </footer>
+  </div>
+</body>
+</html>
+
