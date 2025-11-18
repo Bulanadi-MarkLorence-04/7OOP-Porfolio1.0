@@ -1,13 +1,13 @@
 :root {
   --bg: url("https://github.com/Bulanadi-MarkLorence-04/7OOP-Porfolio1.0/blob/main/assets/pics/fut%5B1%5D.gif?raw=true");
   --muted: #9aa4b2;
-  --accent: #00E5FF;       /* neon cyan accent */
-  --card: #F1F4FF;         /* cool white text */
-  --glass: rgba(10, 20, 60, 0.55); /* glass panel background */
+  --accent: #00E5FF;
+  --card: #F1F4FF;
+  --glass: rgba(10, 20, 60, 0.55);
   --border-light: rgba(0, 200, 255, 0.15);
 }
 
-/* Body & general */
+/* Body & container */
 body {
   font-family: "Inter", system-ui, sans-serif;
   margin: 0;
@@ -21,15 +21,27 @@ body {
   color: var(--card);
 }
 
-/* Container */
 .container {
   max-width: 960px;
   margin: 40px auto;
   padding: 20px;
 }
 
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.back {
+  color: var(--muted);
+  font-size: 14px;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
 /* Headings */
-h1, h2 {
+h1, h2, h3 {
   color: var(--card);
   text-shadow: 0 0 12px rgba(0, 180, 255, 0.4);
 }
@@ -53,7 +65,7 @@ a:hover {
 }
 
 /* Buttons */
-.btn, .button {
+.btn {
   display: inline-block;
   padding: 8px 14px;
   border-radius: 8px;
@@ -66,14 +78,18 @@ a:hover {
   box-shadow: 0 0 12px rgba(0, 150, 255, 0.4);
 }
 
-.btn:hover, .button:hover {
+.btn:hover {
   background: linear-gradient(90deg, #67d4f0, var(--accent));
   transform: translateY(-2px);
   box-shadow: 0 0 18px rgba(0, 180, 255, 0.6);
 }
 
-/* Cards (general & laboratory) */
-.card, .lab, .panel {
+/* Sections & content cards */
+section {
+  margin: 16px 0;
+}
+
+section > * {
   background: var(--glass);
   backdrop-filter: blur(15px);
   border-radius: 15px;
@@ -81,50 +97,48 @@ a:hover {
   margin: 12px 0;
   border: 1px solid var(--border-light);
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
 }
 
-/* Laboratory grid */
-.laboratory {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 12px;
-}
-
-/* Lab links inside cards */
-.lab a {
-  color: var(--card);
-  text-decoration: none;
-  font-weight: 600;
-  word-break: break-word;
-  transition: all 0.3s ease;
-}
-
-.lab a:hover {
-  color: var(--accent);
-  text-shadow: 0 0 6px var(--accent);
-}
-
+/* Code boxes */
 .code-box {
-  background: rgba(10, 20, 60, 0.55); /* deep blue glass */
-  backdrop-filter: blur(15px);         /* glass effect */
-  border: 1px solid rgba(255, 255, 255, 0.06); /* subtle border */
+  background: var(--glass);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   padding: 15px;
   border-radius: 8px;
   overflow: auto;
   max-height: 250px;
-  font-family: 'JetBrains Mono', monospace; /* code aesthetic */
+  font-family: 'JetBrains Mono', monospace;
   margin: 10px 0;
-  color: #F1F4FF; /* cool white text */
-  box-shadow: 0 0 8px rgba(0, 180, 255, 0.2); /* subtle neon glow */
+  color: #F1F4FF;
+  box-shadow: 0 0 8px rgba(0, 180, 255, 0.2);
   transition: all 0.3s ease;
 }
 
-/* Optional: hover glow effect for code box */
 .code-box:hover {
   box-shadow: 0 0 15px rgba(0, 180, 255, 0.4);
 }
 
+/* Lists inside cards */
+ul, ol {
+  padding-left: 20px;
+  margin: 8px 0;
+  background: var(--glass);
+  backdrop-filter: blur(15px);
+  border-radius: 12px;
+  padding: 12px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+/* Images inside cards */
+img {
+  width: 100%;
+  border-radius: 10px;
+  margin: 10px 0;
+  display: block;
+  box-shadow: 0 0 12px rgba(0, 180, 255, 0.15);
+}
 
 /* Footer */
 footer {
@@ -136,7 +150,13 @@ footer {
 
 /* Responsive */
 @media (max-width: 900px) {
-  .laboratory {
-    grid-template-columns: 1fr;
+  .container {
+    padding: 12px;
   }
+}
+
+@media (max-width: 500px) {
+  h1 { font-size: 20px; }
+  h2 { font-size: 16px; }
+  .back { font-size: 12px; }
 }
