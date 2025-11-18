@@ -1,0 +1,175 @@
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Midterm Lab Task 2 | Bulanadi, Mark Lorence</title>
+  <link rel="stylesheet" href="../assets/css/Laboratory.css">
+  <link rel="icon" href="../assets/pics/bulanadiProf.png" type="image/png">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a class="back" href="https://bulanadi-marklorence-04.github.io/7OOP-Porfolio1.0/index.html">← Back to Portfolio</a>
+      <h1>Midterm Lab Task 2</h1>
+      <p class="muted"> Loops AND Functions</p>
+    </header>
+
+    <section>
+      <h2>Problem #1</h2>
+      <p class="muted">Create an n x n Multiplication table using Nested FOR Loop. The user must enter the number of rowsand columns that will be displayed in the Table.</p>
+      <h2>Code</h2>
+      <div class="code-box">
+        <pre><code>
+          
+rows = int(input("How many rows: "))
+cols = int(input("How many Cols: "))
+          
+print("           Multiplication Table\n")
+for rows in range(1, rows+1):
+         for cols in range(1, cols+1):
+             print(f" {rows*cols: 5d)", end="")
+         print ("\n")
+          
+        </code></pre>
+      </div>   
+      <h2>Output</h2>
+      <div class="code-box">
+        <pre><code>
+How many rows: 10
+How many Cols: 10
+                 Multiplication Table
+  1    2    3    4    5    6    7    8    9   10         
+  2    4    6    8   10   12   14   16   18   20           
+  3    6    9   12   15   18   21   24   27   30        
+  4    8   12   16   20   24   28   32   36   40      
+  5   10   15   20   25   30   35   40   45   50
+  6   12   18   24   30   36   42   48   54   60
+  7   14   21   28   35   42   49   56   63   70
+  8   16   24   32   40   46   56   64   72   80
+  9   18   27   36   45   54   63   72   81   90
+  10  20   30   40   50   60   70   80   90  100
+
+        </code></pre>
+      </div>    
+    </section>
+
+    <section>
+      <h2>Problem #2</h2>
+      <p class="muted">Create a bank program that will allow the user to perform the ff: Use Functions as necessary</p>
+      <h2>Code</h2>
+      <div class="code-box">
+        <pre><code>
+          
+def show_balance(balance):
+    print (f"Your balance is ${balance:.2f}")
+          
+def deposit (balance):
+    amount = float(input("Enter an amount to be deposited: "))
+    if amount > 0:
+       balance + amount
+    else:
+       print("Invalid amount!")
+    return balance
+          
+def withdraw(balance):
+    amount = float(input("Enter an amount to be withdrawn: "))
+    if amount balance:
+       print("Sorry, not enough Balance.")
+    elif amount <= 0:
+       print("Invalid amount! Amount must be greater than 0.")
+    else:
+       balance -= amount
+    return balance
+      
+def main():
+    balance = 0
+    while True:
+       print(" ")
+       print(" Eksenang ATM ")
+       print("--")
+       print("1. Show Balance")
+       print("2. Deposit")
+       print("3. Withdraw")
+       print("4. Exit")
+       print("--
+       choice = Int(input("Enter your choice (1-4): "))
+       print("\n")
+      if choice 1:
+          show_balance(balance)
+      elif choice 2:
+          balance deposit (balance)
+      elif choice == 3:
+          balance withdraw (balance)
+      elif choice 4:
+          print("Exiting Transaction.")
+          break
+      else:
+           print("------------------------------------------------")
+           print("Invalid input!Please select a valid input (1-4).")
+           print("------------------------------------------------")
+  print("----------------------------------")
+  print(" Thank you for using Eksenang ATM ")
+  print("----------------------------------")
+      
+main()
+      
+        </code></pre>
+      </div>
+      <h2>Output</h2>
+      <div class="code-box">
+        <pre><code>
+--------------------
+     Eksenang ATM
+--------------------
+1. Show Balance
+2. Deposit
+3. Withdraw
+4. Exit
+--------------------
+Enter your choice (1-4): <span class="user">1</span>
+Your balance is $0.00
+--------------------
+     Eksenang ATM
+--------------------
+1. Show Balance
+2. Deposit
+3. Withdraw
+4. Exit
+--------------------
+Enter your choice (1-4): <span class="user">2</span>
+Enter an amount to be deposited: <span class="user">500</span>
+--------------------
+     Eksenang ATM
+--------------------
+1. Show Balance
+2. Deposit
+3. Withdraw
+4. Exit
+--------------------
+Enter your choice (1-4): <span class="user">3</span>
+Enter an amount to be withdrawn: <span class="user">200</span>
+--------------------
+     Eksenang ATM
+--------------------
+1. Show Balance
+2. Deposit
+3. Withdraw
+4. Exit
+-------------------
+Enter your choice (1-4): <span class="user">1</span>
+Your balance is $300.00
+
+        </code></pre>
+      </div> 
+    </section>
+     <a href="" target="_blank" class="btn"> View PDF Here</a>
+
+    <footer>
+      Aug 30, 2025 Bulanadi, Mark Lorence | Object-Oriented Programming Portfolio
+    </footer>
+  </div>
+</body>
+</html>
