@@ -35,93 +35,103 @@ Requirements:<br>
   5. The user may opt to exit the program by typing 0.<br></p>
       <h2>Code</h2>
       <div class="code-box">
-        <pre><code>
+        <pre><code> 
+          
 def remove_item(item_list):
     item_to_remove = input("Enter item to remove: ").strip()
     if item_to_remove in item_list:
-         item_list.remove(item_to_remove)
-         print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-         print("Item found and deleted")
-         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        item_list.remove(item_to_remove)
+        print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print("Item found and deleted")
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     else:
-         print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-         print("Item not found - deletion unsuccessful")
-         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-          
+        print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print("Item not found - deletion unsuccessful")
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+
+
 def view_items(item_list):
     sort_order = input("Sort A-Z or Z-A? (a/z): ").strip().lower()
-    if sort order 'a':
-       sorted_list = sorted(item_list)
-    elif sort order 'z':
-       sorted_list = sorted(item_list, reverse=True)
+    if sort_order == 'a':
+        sorted_list = sorted(item_list)
+    elif sort_order == 'z':
+        sorted_list = sorted(item_list, reverse=True)
     else:
-       print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-       print("Invalid sort order. Displaying unsorted list.")
-       sorted list = item_list
-       print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-          
+        print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print("Invalid sort order. Displaying unsorted list.")
+        sorted_list = item_list
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+
     print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     print("Items in the list:")
-    for item in sorted list:
+    for item in sorted_list:
         print(item)
-        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-          
+    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+
+
 def display_menu():
     print("1 Add Items")
     print("2 Search for an Item")
     print("3 Remove an Item")
     print("4 View all items (Sorted A-Z | Z-A)")
-    print("e Exit program")
+    print("0 Exit program")
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-          
+
+
 def add_item(item_list):
     while True:
-      item Input("Enter item to add (or 'x' to stop): ").strip()
-      if item. lower() = 'x':
-         break
-      item_list.append(item)
-   print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-   print("Item added successfully!")
-   print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-          
+        item = input("Enter item to add (or 'x' to stop): ").strip()
+        if item.lower() == 'x':
+            break
+        item_list.append(item)
+    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    print("Item added successfully!")
+    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+
+
 def search_item(item_list):
-    search_term= input("Enter item to search for: ").strip()
-    count item_list.count(search_term)
+    search_term = input("Enter item to search for: ").strip()
+    count = item_list.count(search_term)
     if count > 0:
-       print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-       print(f"Item '{search_term} found {count} time(s) in the list.")
-       print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print(f"Item '{search_term}' found {count} time(s) in the list.")
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     else:
-       print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-       print(f"Item '{search_term} not found in the list.")
-       print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print(f"Item '{search_term}' not found in the list.")
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+
+
 def main():
-    item_list=[]
-          
+    item_list = []
+
     while True:
         display_menu()
-        choice = input("Pick one [0 to exit: ").strip()
+        choice = input("Pick one [0 to exit]: ").strip()
         if choice == '1':
-             add_item(item_list)
-        elif choice = '2':
-             search_item(item_list)
-        elif choice '3':
-             remove_item(item_list)
+            add_item(item_list)
+        elif choice == '2':
+            search_item(item_list)
+        elif choice == '3':
+            remove_item(item_list)
         elif choice == '4':
-             view_items(item_list)
+            view_items(item_list)
         elif choice == '0':
-             print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-             print("Exiting program.")
-             print("Thank you for using our program!")
-          break
+            print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+            print("Exiting program.")
+            print("Thank you for using our program!")
+            break
         else:
             print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
             print("Invalid choice. Please try again.")
             print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+
+
 print("\n ~~~~~~~~~~ Welcome ~~~~~~~~~~~~")
 print("~~~~~~~ My Listing ~~~~~~~~~")
-          
+
 main()
+          
         </code></pre>
       </div>   
       <h2>Output</h2>
@@ -129,7 +139,6 @@ main()
         <pre><code>
 ~~~~~~~~~ Welcome ~~~~~~~~~~
 ~~~~~~~ My Listing ~~~~~~~~~
-~~~~~~~~~~ Menu ~~~~~~~~~~~~
 1 - Add Items 
 2 - Search for an Item 
 3 - Remove an Item
