@@ -1,12 +1,13 @@
-
 :root {
-  --bg:  url("https://github.com/Bulanadi-MarkLorence-04/7OOP-Porfolio1.0/blob/main/assets/pics/fut%5B1%5D.gif?raw=true");
-  --card: #c1d7e6;
-  --muted: #3e789c;
-  --accent: #6ee7b7;
-  --glass: rgba(255,255,255,0.03);
+  --bg: url("https://github.com/Bulanadi-MarkLorence-04/7OOP-Porfolio1.0/blob/main/assets/pics/fut%5B1%5D.gif?raw=true");
+  --card: #F1F4FF;        /* cool white text */
+  --muted: #4DA8FF;       /* soft blue for secondary text */
+  --accent: #00E5FF;      /* neon cyan for highlights */
+  --glass: rgba(10, 20, 60, 0.55); /* glass panel background */
+  --border-light: rgba(0, 200, 255, 0.15);
 }
 
+/* General */
 * {
   box-sizing: border-box;
 }
@@ -14,36 +15,38 @@
 body {
   font-family: "Inter", "JetBrains Mono", system-ui, sans-serif;
   margin: 0;
-  color: #e6eef6;
+  color: var(--card);
   line-height: 1.5;
   background: var(--bg);
-  background-size: cover;      /* make the GIF fill the whole screen */
-  background-position: center; /* center the GIF */
-  background-repeat: no-repeat; /* no repeating tiles */
-  background-attachment: fixed; /* optional: keeps background still when scrolling */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
+/* Container */
 .container {
   max-width: 960px;
   margin: 32px auto;
   padding: 24px;
 }
 
+/* Header */
 header {
   text-shadow: 0 0 12px rgba(0, 180, 255, 0.4);
-  display: flex;            
-  flex-direction: column;   /* stack items vertically */
-  align-items: center;      /* center horizontally */
-  justify-content: center;  /* center vertically if needed */
-  text-align: center;       /* center text inside elements */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   margin-bottom: 40px;
 }
 
 .avatar {
- width: 150px;         
-  height: 150px;        
-  border-radius: 50%;  
-  object-fit: cover;    
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
   border: 3px solid #1f9bde;
 }
 
@@ -64,6 +67,7 @@ p.lead, .muted {
   color: var(--muted);
 }
 
+/* Navigation Chips */
 nav {
   margin-top: 18px;
   display: flex;
@@ -82,17 +86,22 @@ nav {
 
 .chip {
   padding: 8px 12px;
-  background: #07092b;
+  background: var(--glass);
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--border-light);
   border-radius: 16px;
   cursor: pointer;
   color: var(--card);
   font-size: 13px;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px rgba(0, 180, 255, 0.2);
 }
 
 .chip:hover, .chip:focus-visible {
-  background: var(--accent);
+  background: linear-gradient(135deg, #1f6feb, #3b9eff);
   color: var(--card);
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px rgba(0, 150, 255, 0.5);
   outline: none;
 }
 
@@ -103,9 +112,10 @@ nav {
 }
 
 .chip a:hover {
-  color:var(--card);
+  color: var(--accent);
 }
 
+/* Main layout */
 main {
   margin-top: 20px;
   display: grid;
@@ -114,12 +124,12 @@ main {
 }
 
 .card {
-  border-radius: 15px;      
+  border-radius: 15px;
   padding: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
-  background: rgba(10, 20, 60, 0.55); /* deep blue glass */
+  background: var(--glass);
   backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 .section-title {
@@ -143,12 +153,13 @@ main {
 }
 
 .skill {
-  background: #071128;
+  background: var(--glass);
   padding: 8px;
   border-radius: 8px;
   color: var(--muted);
 }
 
+/* Contact / Links */
 .contact a {
   display: inline-flex;
   align-items: center;
@@ -159,8 +170,16 @@ main {
   color: var(--muted);
   text-decoration: none;
   margin: 6px 6px 0 0;
+  transition: all 0.3s ease;
 }
 
+.contact a:hover {
+  background: linear-gradient(135deg, #1f6feb, #3b9eff);
+  color: var(--card);
+  transform: translateY(-2px);
+}
+
+/* Laboratory */
 .laboratory {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -168,7 +187,7 @@ main {
 }
 
 .lab {
-  background: #071026;
+  background: var(--glass);
   padding: 12px;
   border-radius: 8px;
 }
@@ -180,17 +199,18 @@ main {
   word-break: break-word;
 }
 
+/* Buttons */
 .button {
   box-shadow: 0 0 12px rgba(0, 150, 255, 0.4);
   display: inline-block;
   padding: 8px 12px;
   border-radius: 8px;
   background: linear-gradient(135deg, #1f6feb, #3b9eff);
-  color: #0f1724;
+  color: var(--card);
   text-decoration: none;
   font-weight: 600;
   margin-top: 6px;
-  transition: background 0.2s;
+  transition: all 0.3s ease;
 }
 
 .button:hover {
@@ -198,6 +218,7 @@ main {
   transform: translateY(-2px);
 }
 
+/* Footer */
 footer {
   margin-top: 28px;
   color: var(--muted);
@@ -209,6 +230,7 @@ footer {
   margin-top: 8px;
 }
 
+/* Spacers */
 .spacer {
   height: 18px;
 }
@@ -217,6 +239,7 @@ footer {
   height: 12px;
 }
 
+/* Code boxes */
 .code-box {
   background: #1e293b;
   padding: 15px;
@@ -227,10 +250,12 @@ footer {
   margin: 10px 0;
 }
 
+/* Scroll smooth */
 html {
   scroll-behavior: smooth;
 }
 
+/* Responsive */
 @media (max-width: 900px) {
   main {
     grid-template-columns: 1fr;
@@ -253,8 +278,9 @@ html {
   }
 }
 
+/* Glow Animations */
 .glow {
-  animation: 0 0 20px 5px rgba(76, 175, 80, 0.9); 
+  animation: glowEffect 2s infinite;
 }
 
 @keyframes glowEffect {
@@ -262,3 +288,4 @@ html {
   50% { box-shadow: 0 0 15px var(--accent); }
   100% { box-shadow: 0 0 0px var(--accent); }
 }
+0
