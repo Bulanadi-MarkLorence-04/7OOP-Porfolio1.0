@@ -1,0 +1,111 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Midterm Lab Task 4 | Bulanadi, Mark Lorence</title>
+  <link rel="stylesheet" href="../assets/css/Laboratory.css">
+  <link rel="icon" href="../assets/pics/bulanadiProf.png" type="image/png">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a class="back" href="https://bulanadi-marklorence-04.github.io/7OOP-Porfolio1.0/index.html">← Back to Portfolio</a>
+      <h1>Midterm Lab Task 4</h1>
+      <p class="muted">Using Dictionary Collection</p>
+    </header>
+
+    <section>
+      <h2>Problem #1</h2>
+      <p class="muted">Problem 1. Create the following UI for menu items: then allow the user to input orders<br>The user will continue to input orders until q is typed to quit. Then display the summary of orders with the total bill.<br>
+1. Use a dictionary (for the menu) and List(for the orders in the cart).<br>
+2. Users may input the same item in the cart.<br>
+3. Follw the exact format and whitespace for the menu.<br>
+4. User input should be case insensitive.<br>
+5. If the user inputted an item not in the Menu - it will not include it in the cart and display "Not Available" and input another item.<br>
+6. Create a MENU with 10 items and assign prices in Peso (php) - You may choose what items you would like to put in your cart.<br></p>
+      <h2>Code</h2>
+      <div class="code-box">
+        <pre><code>
+menu = {
+     "coke miss mo": 25.25,
+     "sprayt": 20.75,
+     "pepsea": 22.30,
+     "mountain Drew": 24.25,
+     "sunkiss": 19.55,
+     "fanta": 26.60,
+     "royal": 25.30,
+     "footbeer": 26.25,
+     "7down": 25.85,
+    "sparkel": 23.75
+}
+print("------------- Enzo's Soda Pop -----------\n")
+print("----------------- MENU --------------------")
+for item, price in menu.items():
+     print(f"{item: <15} {price:.2f}")
+print("------------------------------------------")
+       
+cart = []
+       
+while True:
+      choice input("Select an item (q to quit): ").lower().strip()
+      if choice == "q":
+           break
+      elif choice in menu:
+           cart.append(choice)
+      else:
+           print("Not Available")
+if not cart:
+    print("--------------------------------------")
+    print("------- Thank you, come again! -------")
+    print("--------------------------------------")
+else:
+    print("\n----------- YOUR ORDER -------------")
+    total = 0
+    for item in cart:
+         price menu[item]
+         print(f"{item.capitalize(): <15) P{price:.2f}")
+         total += price
+   print("\n--")
+   print(f"Total is: P{total:.2f}")
+           
+        </code></pre>
+      </div>   
+      <h2>Output</h2>
+      <div class="code-box">
+        <pre><code>
+------------- Enzo's Soda Pop -----------
+----------------- MENU ------------------
+coke miss mo     : P 25.25
+sprayt           : P 20.75
+pepsea           : P 22.30
+mountain Drew    : P 24.25
+sunkiss          : P 19.55
+fanta            : P 26.60
+royal            : P 25.30
+footbeer         : P 26.25
+7down            : P 25.85
+sparkel          : P 23.75
+--------------------------------------
+Select an item (q to quit): <span class="user">7down</span>
+Select an item (q to quit): <span class="user">Coke Miss Mo</span>
+Select an item (q to quit): <span class="user"> SpArKel<</span>
+Select an item (q to quit): <span class="user">q</span>
+----------- YOUR ORDER -------------
+7down           - P 25.85
+Coke miss mo    - P 25.25
+Sparkel         - P 23.75
+--------------------------------------
+Total is: P74.85
+        </code></pre>
+      </div>    
+    </section>
+     <a href="" target="_blank" class="btn"> View PDF Here</a>
+
+    <footer>
+      Sep 20, 2025 Bulanadi, Mark Lorence | Object-Oriented Programming Portfolio
+    </footer>
+  </div>
+</body>
+</html>
