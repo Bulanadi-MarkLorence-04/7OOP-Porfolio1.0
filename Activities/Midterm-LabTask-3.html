@@ -1,0 +1,241 @@
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Midterm Lab Task 3 | Bulanadi, Mark Lorence</title>
+  <link rel="stylesheet" href="../assets/css/Laboratory.css">
+  <link rel="icon" href="../assets/pics/bulanadiProf.png" type="image/png">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a class="back" href="https://bulanadi-marklorence-04.github.io/7OOP-Porfolio1.0/index.html">← Back to Portfolio</a>
+      <h1>Midterm Lab Task 3</h1>
+      <p class="muted">Using List Collection Type</p>
+    </header>
+
+    <section>
+      <h2>Problem #1</h2>
+      <p class="muted">
+<h3>Problem 1.</h3> <strong>Using List Collection type</strong>. Create a program that will allow the user to perform the following functions: (add, update, search, delete, display, and sort) items in a list:
+Note: You are free to decide what data you will be storing in the list and name the list based on the type of data you wish to store.
+      [MENU OPTIONS]
+    1-Add Items
+    2- Search for an Item
+    3- Remove an Item
+    4- View all items (Sorted either A-Z | Z-A)
+    0- Exit program
+    Pick one [0 to quit]:
+Requirements:
+  1. The user can add items in the list until the user presses x to stop
+  2. The user should be able to perform search if an item exists - Display if found or not found and count the number of instance in the list.
+  3. The user should also be given the option to remove an item in the list - Display the Message "Item found and deleted" once deletion is performed - else display "item not found-deletion unsuccessful"
+  4. The user may also opt to view items in the list and display items sorted in Ascending order
+  5. The user may opt to exit the program by typing 0
+      </p>
+      <h2>Code</h2>
+      <div class="code-box">
+        <pre><code>
+def remove_item(item_list):
+    item_to_remove = input("Enter item to remove: ").strip()
+    if item_to_remove in item_list:
+         item_list.remove(item_to_remove)
+         print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+         print("Item found and deleted")
+         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    else:
+         print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+         print("Item not found - deletion unsuccessful")
+         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+          
+def view_items(item_list):
+    sort_order = input("Sort A-Z or Z-A? (a/z): ").strip().lower()
+    if sort order 'a':
+       sorted_list = sorted(item_list)
+    elif sort order 'z':
+       sorted_list = sorted(item_list, reverse=True)
+    else:
+       print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+       print("Invalid sort order. Displaying unsorted list.")
+       sorted list = item_list
+       print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+          
+    print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    print("Items in the list:")
+    for item in sorted list:
+        print(item)
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+          
+def display_menu():
+    print("1 Add Items")
+    print("2 Search for an Item")
+    print("3 Remove an Item")
+    print("4 View all items (Sorted A-Z | Z-A)")
+    print("e Exit program")
+    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+          
+def add_item(item_list):
+    while True:
+      item Input("Enter item to add (or 'x' to stop): ").strip()
+      if item. lower() = 'x':
+         break
+      item_list.append(item)
+   print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+   print("Item added successfully!")
+   print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+          
+def search_item(item_list):
+    search_term= input("Enter item to search for: ").strip()
+    count item_list.count(search_term)
+    if count > 0:
+       print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+       print(f"Item '{search_term} found {count} time(s) in the list.")
+       print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    else:
+       print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+       print(f"Item '{search_term} not found in the list.")
+       print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+def main():
+    item_list=[]
+          
+    while True:
+        display_menu()
+        choice = input("Pick one [0 to exit: ").strip()
+        if choice == '1':
+             add_item(item_list)
+        elif choice = '2':
+             search_item(item_list)
+        elif choice '3':
+             remove_item(item_list)
+        elif choice == '4':
+             view_items(item_list)
+        elif choice == '0':
+             print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+             print("Exiting program.")
+             print("Thank you for using our program!")
+          break
+        else:
+            print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+            print("Invalid choice. Please try again.")
+            print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+print("\n ~~~~~~~~~~ Welcome ~~~~~~~~~~~~")
+print("~~~~~~~ My Listing ~~~~~~~~~")
+          
+main()
+        </code></pre>
+      </div>   
+      <h2>Output</h2>
+      <div class="code-box">
+        <pre><code>
+~~~~~~~~~ Welcome ~~~~~~~~~~
+~~~~~~~ My Listing ~~~~~~~~~
+~~~~~~~~~~ Menu ~~~~~~~~~~~~
+1 - Add Items 
+2 - Search for an Item 
+3 - Remove an Item
+4 - View all items (Sorted A-Z | Z-A)
+0 - Exit program
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Pick one [0 to exit]: <span class="user">1</span>
+Enter item to add (or 'x' to stop): <span class="user">1</span>
+Enter item to add (or 'x' to stop): <span class="user">2</span>
+Enter item to add (or 'x' to stop): <span class="user">3</span>
+Enter item to add (or 'x' to stop): <span class="user">4</span>
+Enter item to add (or 'x' to stop): <span class="user">5</span>
+Enter item to add (or 'x' to stop): <span class="user">5</span>
+Enter item to add (or 'x' to stop): <span class="user">mama</span>
+Enter item to add (or 'x' to stop): <span class="user">papa</span>
+Enter item to add (or 'x' to stop): <span class="user">kuya</span>
+Enter item to add (or 'x' to stop): <span class="user">x</span>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Item added successfully!
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~ Menu ~~~~~~~~~~~~
+1 - Add Items
+2 - Search for an Item
+3 - Remove an Item
+4 - View all items (Sorted A-Z | Z-A)
+0 - Exit program
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Pick one [0 to exit]: <span class="user">2</span>
+Enter item to search for: <span class="user">5</span>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Item '5' found 2 time(s) in the list.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~ Menu ~~~~~~~~~~~~
+1 - Add Items 
+2 - Search for an Item
+3 - Remove an Item
+4 - View all items (Sorted A-Z | Z-A)
+0 - Exit program
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Pick one [0 to exit]: <span class="user">3</span>
+Enter item to remove: <span class="user">5</span>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Item found and deleted
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~ Menu ~~~~~~~~~~~~
+1 Add Items
+2 Search for an Item
+3 - Remove an Item
+4 View all items (Sorted A-Z | Z-A)
+0 Exit program
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Pick one (0 to exit]: <span class="user">4</span>
+Sort A-Z or Z-A? (a/z): <span class="user">a</span>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Items in the list:
+1
+2
+3
+4
+5
+kuya
+mama
+papa
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~ Menu ~~~~~~~~~~~~    
+1- Add Items
+2 - Search for an Item
+3- Remove an Item
+4 View all items (Sorted A-Z | Z-A)
+0 Exit program
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Pick one [0 to exit]: <span class="user">4</span>
+Sort A-Z or Z-A? (a/z): <span class="user">z</span>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Items in the list:
+papa
+mama
+kuya
+5
+4
+3
+2
+1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~ Menu ~~~~~~~~~~~~ 
+1 Add Items
+2 Search for an Item
+3 Remove an Item
+4 - View all items (Sorted A-Z | Z-A)
+0 Exit program
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Pick one [0 to exit]: <span class="user">0</span>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Exiting program.
+Thank you for using our program!
+        </code></pre>
+      </div>    
+    </section>
+     <a href="" target="_blank" class="btn"> View PDF Here</a>
+
+    <footer>
+      Aug 30, 2025 Bulanadi, Mark Lorence | Object-Oriented Programming Portfolio
+    </footer>
+  </div>
+</body>
+</html>
