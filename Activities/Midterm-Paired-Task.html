@@ -84,6 +84,9 @@
       <p>Patient Class</p>
 <div class="code-box">
   <pre><code>
+    
+import java.util.Date;
+
 class Patient {
     int patientID;
     String name;
@@ -106,11 +109,13 @@ class Patient {
         return "ID: " + patientID + ", Name: " + name + ", DOB: " + dateOfBirth + ", Type: " + patientType;
     }
 }
+    
   </code></pre>
 </div>
       <p>HosRoom Class</p>
       <div class="code-box">
         <pre><code>
+          
 class HosRoom {
     int roomNumber;
     String roomType;
@@ -137,11 +142,13 @@ class HosRoom {
         return occupied;
     }
 }
+          
         </code></pre>
       </div>
             <p>ResPatient Class (Extends Patient)</p>
       <div class="code-box">
         <pre><code>
+          
 class ResPatient extends Patient {
     int roomPatient;
 
@@ -155,11 +162,13 @@ class ResPatient extends Patient {
         room.assignPatient(this);
     }
 }
+          
         </code></pre>
       </div>
             <p>OutPatient Class (Extends Patient)</p>
       <div class="code-box">
         <pre><code>
+          
 class OutPatient extends Patient {
     public OutPatient(int patientID, String name, Date dob) {
         super(patientID, name, dob, "Outpatient");
@@ -169,11 +178,13 @@ class OutPatient extends Patient {
         System.out.println(name + " has been discharged.");
     }
 }
+          
         </code></pre>
       </div>
             <p>HosFlow Class</p>
       <div class="code-box">
         <pre><code>
+          
 class HosFlow {
     List<Patient> patients = new ArrayList<>();
     List<HosRoom> rooms = new ArrayList<>();
@@ -226,6 +237,7 @@ class HosFlow {
             <p>Main</p>
       <div class="code-box">
         <pre><code>
+          
 public static void main(String[] args) {
     HosFlow system = new HosFlow();
 
