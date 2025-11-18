@@ -1,1 +1,178 @@
 
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Final Lab Task 2 | Bulanadi, Mark Lorence</title>
+  <link rel="stylesheet" href="../assets/css/Laboratory.css">
+  <link rel="icon" href="../assets/pics/bulanadiProf.png" type="image/png"> 
+</head>
+<body>
+  <div class="container">
+    <header>
+       <h1>Final Lab Task 2</h1>
+       <p class="muted"><strong>Inheritance</strong></p>
+    </header>
+
+    <section>
+      <h2>Problem #1: School Performace</h2>
+      <p><strong>Note: You are to create 4 separate python files for this task:</strong><br>
+     * performer.py(base class)<br>
+     * singer.py(sub class)<br>
+     * dancer.py(sub class)<br>
+     * test_class.py-following the required test cases<br>
+In a school musical performance, different types of performers participate. For this program, we will be implementing the performers.<br>
+Base Class - Performer:<br>
+<br><strong>Properties:</strong><br>
+     * name (type: str): Represents the name of the performer.<br>
+     * age (type: int): Represents the age of the performer.<br>
+<strong>Constructor:</strong><br>
+     * _init__(self, name: str, age: int): Initializes the name and age properties.<br>
+<strong>Getters</strong>
+     * get_name(self) -> str: Returns the name
+     * get_age(self) -> int: Returns the age
+Subclass - Singer:<br>
+<br><strong>Inherits From:</strong> Performer<br>
+<strong>Additional Property:</strong>
+     * vocal range (type: str): Represents the vocal range of the singer.
+<strong>Constructor:</strong><br>
+     * _init_(self, name: str, age: int, vocal_range: str): Initializes the name and age properties by calling the parent class's constructor and sets the vocal_range property.<br>
+<strong>Getter:</strong><br>
+    * get_vocal_range (self) -> str: Returns the vocal range of the singer.
+<strong>Method:</strong><br>
+    * sing(self) -> None: Prints "(name) is singing with a (vocal_range} range."<br>
+Subclass Dancer:<br>
+<br><strong>Inherits From:</strong> Performer<br>
+<strong>Additional Property:</strong>
+    * dance style (type: str): Represents the dance style of the dancer.<br>
+<strong>Constructor:</strong><br>
+    * _init(self, name: str, age: int, dance_style: str): Initializes the name and age properties by calling the parent class's constructor and sets the dance style property.<br>
+<strong>Getter:</strong><br>
+    * get_dance_style(self) -> str: Returns the dance style of the dancer.
+<strong>Method:</strong><br>
+    * dance(self) -> None: Prints "(name) is performing (dance_style) dance."<br></p>
+      
+    </section>
+
+    <section>
+      <h3>Code for main.py File</h3>
+<div class="code-box">
+  <pre><code>
+    
+from performer import Performer
+from singer import Singer
+from dancer import Dancer
+
+print("Test case 1")
+p = Performer("John", 25)
+print(p.get_name(), p.get_age())
+
+print("\nTest case 2")
+d = Dancer("Emily", 28, "Ballet")
+print(d.get_name(), d.get_age(), d.get_style())
+
+print("\nTest case 3")
+d.dance()
+
+print("\nTest case 4")
+print("Dancer class is subclass of Performer:", issubclass(Dancer, Performer))
+
+print("\nTest case 5")
+s = Singer("Linda", 35, "Soprano")
+print(s.get_name(), s.get_age(), s.get_vocal_range())
+
+print("\nTest case 6")
+s.sing()
+    
+  </code></pre>
+</div>
+      <h3>Code for performer.py File</h3>
+      <div class="code-box">
+        <pre><code>
+
+class Performer:
+    def __init__(self, name: str, age: int):
+        self.name = name
+        self.age = age
+
+    def get_name(self) -> str:
+        return self.name
+
+    def get_age(self) -> int:
+        return self.age
+          
+        </code></pre>
+      </div>
+
+      <h3>Code for singer.py File</h3>
+      <div class="code-box">
+        <pre><code>
+
+from performer import Performer
+
+class Singer(Performer):
+    def __init__(self, name: str, age: int, vocal_range: str):
+        super().__init__(name, age)
+        self.vocal_range = vocal_range
+
+    def get_vocal_range(self) -> str:
+        return self.vocal_range
+
+    def sing(self) -> None:
+        print(f"{self.name} is singing with a {self.vocal_range} range.")
+          
+        </code></pre>
+      </div>
+         <h3>Code for dancer.py File</h3>
+      <div class="code-box">
+        <pre><code>
+
+from performer import Performer
+
+class Dancer(Performer):
+    def __init__(self, name: str, age: int, dance_style: str):
+        super().__init__(name, age)
+        self.dance_style = dance_style
+
+    def get_dance_style(self) -> str:
+        return self.dance_style
+
+    def dance(self) -> None:
+        print(f"{self.name} is performing {self.dance_style} dance.")
+          
+        </code></pre>
+      </div>
+      
+           <h3>Output</h3>
+      <div class="code-box">
+        <pre><code>    
+Test case 1
+John 25
+          
+Test case 2
+Emily 28 Ballet
+          
+Test case 3
+Emily is performing Ballet dance.
+          
+Test case 4
+Dancer class is subclass of Performer: True
+          
+Test case 5
+Linda 35 Soprano
+          
+Test case 6
+Linda is singing with a Soprano range. 
+        </code></pre>
+      </div>
+    </section>
+      <a class="btn" href="https://bulanadi-marklorence-04.github.io/7OOP-Porfolio1.0/index.html">← Back to Portfolio</a>
+
+
+    <footer>
+      Nov 19, 2025 Bulanadi, Mark Lorence | Object-Oriented Programming Portfolio
+    </footer>
+  </div>
+</body>
+</html>
