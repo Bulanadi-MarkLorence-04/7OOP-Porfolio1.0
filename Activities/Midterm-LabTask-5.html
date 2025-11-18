@@ -1,0 +1,146 @@
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Midterm Lab Task 5 | Bulanadi, Mark Lorence</title>
+  <link rel="stylesheet" href="../assets/css/Laboratory.css">
+  <link rel="icon" href="../assets/pics/bulanadiProf.png" type="image/png">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a class="back" href="https://bulanadi-marklorence-04.github.io/7OOP-Porfolio1.0/index.html">← Back to Portfolio</a>
+      <h1>Midterm Lab Task 5</h1>
+      <p class="muted">Creating Class and Intantiating Objects in Python</p>
+    </header>
+
+    <section>
+      <h2>Problem #1: Users in Social Media </h2>
+      <p class="muted"><strong>A. Create User Class with the ff: attributes (Use Constructor for this)</strong><br>
+first_name<br>
+last_name<br>
+followers_count<br>
+friends_name [LIST]<br>
+Note: You can make a List an attribute of a class<br>
+<strong>B. Create the ff: methods </strong><br>
+introduce_self which should output" Hi I am (first_name) {last_name}<br>
+view full profile which outputs all the information of the user as shown below<br>
+Profile Name is Bradd Pitt with 10 followers<br>
+Friend are... Juan Pedro Jose<br>
+<strong>C.</strong> Create a separate TestUser class to test if the program is working as expected, allowing for user input to be passed as parameters of the object. Create atleast 2 object instance to test the class template<br></p>
+      
+      <h2>Code</h2>
+      <div class="code-box">
+        <pre><code>
+
+class User:
+    user_count = 0  
+
+    def __init__(self, first_name, last_name, followers_count, friends_name):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.followers_count = followers_count
+        self.friends_name = friends_name
+        User.user_count += 1  # Increment user count when a new user is created
+
+    def introduce_self(self):
+        print(f"Hi I am {self.first_name} {self.last_name}") 
+
+    def view_full_profile(self):
+        print(f"Profile Name is: {self.first_name} {self.last_name} with {self.followers_count} followers")  # Corrected variable name
+        print("Your friends are: " + ', '.join(self.friends_name)) 
+        print()
+
+
+class TestUser:
+    def __init__(self):
+        self.users = []
+
+    def run(self):
+        """Runs the user creation and display process."""
+        while True:
+            insert = input("\nInsert a Record? [y/n]: ")  
+            if insert.lower() != 'y':
+                break
+
+            first_name = input("First name: ")
+            last_name = input("Last name: ")
+            followers_count = int(input("Followers: "))
+
+            friends = []
+            print("Enter friends one by one. Type 'x' when finished:")
+            while True:
+                friend = input()
+                if friend.lower() == 'x':
+                    break
+                if friend.strip():
+                    friends.append(friend.strip())
+
+            user = User(first_name, last_name, followers_count, friends)  # Corrected object creation
+            self.users.append(user)
+
+        print("\nHere are the Records...")
+        for user in self.users:  
+            user.introduce_self()
+            user.view_full_profile()
+
+        print(f"There are currently {User.user_count} Members in the Social Media page")  
+
+test = TestUser()
+test.run()
+          
+        </code></pre>
+      </div>   
+      <h2>Output</h2>
+      <div class="code-box">
+        <pre><code>
+          
+Insert a Record? (y/n): <span class="user">y</span>
+          
+First Name: <span class="user">EnZo</span>
+Last Name: <span class="user">Zoldic</span>
+Followers: <span class="user">6837454845748</span>
+Enter friends one by one. Type X when finished:
+<span class="user">Tayting</span>
+<span class="user">Almea</span>
+<span class="user">Noel</span>
+<span class="user">Yshian</span>
+          
+Insert a Record? [y/n]: <span class="user">y</span>
+First Name: <span class="user">Mark</span>
+Last Name: <span class="user">Smith</span>
+Followers: <span class="user">782148787215</span>
+Enter friends one by one. Type 'x' when finished:
+<span class="user">Troy</span>
+<span class="user">Ryza</span>
+<span class="user">Eljoy</span>
+<span class="user">Lorence</span>
+          
+Insert a Record? [y/n): <span class="user">n</span>
+Here are the Records....
+          
+Hi I am Enzo Zoldic
+Profile Name is: Enzo Zoldic with 6837454845748 followers
+Your friends are: Tayting, Almea, Noel, Yshian
+          
+Hi I am Mark Smith
+Profile Name is: Mark Smith with 782148787215 followers
+Your friends are: Troy, Ryza, Eljoy, Lorence
+          
+There are currently 2 Members in the Social Media page
+          
+        </code></pre>
+      </div>    
+    </section>
+
+     <a href="" target="_blank" class="btn"> View PDF Here</a>
+
+    <footer>
+      Oct 06, 2025 Bulanadi, Mark Lorence | Object-Oriented Programming Portfolio
+    </footer>
+  </div>
+</body>
+</html>
