@@ -18,25 +18,25 @@
     <section>
       <h2>Problem #1: A Car That Works</h2>
       <p>For this program, you are tasked to define the following:<br>
-Class Car:<br>
-><strong>Properties:</strong><br>
-*color (type: str): Represents the color of the car.<br>
-*price (type: float): Holds the price of the car.<br>
-*size (type: str): Indicates the size of the car, where 'S' represents small, 'M' represents medium, and 'L' represents large.<br>
-><strong>Constructor:</strong><br>
-*__init_(self, color: str, price: float, size: str): Initializes the car's color, price, and size properties. The size is standardized to uppercase using size.upper().<br>
+<br>Class Car:<br>
+<strong>Properties:</strong><br>
+* color (type: str): Represents the color of the car.<br>
+* price (type: float): Holds the price of the car.<br>
+* size (type: str): Indicates the size of the car, where 'S' represents small, 'M' represents medium, and 'L' represents large.<br>
+<strong>Constructor:</strong><br>
+* __init_(self, color: str, price: float, size: str): Initializes the car's color, price, and size properties. The size is standardized to uppercase using size.upper().<br>
 Methods<br>
-><strong>Getter Methods:</strong><br>
-*get_color(self) -> str: Returns the car's color.<br>
-*get_price(self) -> float: Returns the car's price.<br>
-*get_size(self) -> str: Returns the car's size.<br>
-><strong>Setter Methods:</strong><br>
-*set color (self, color: str) > None: Sets the car's color to the specified value.<br>
-*set_price(self, price: float) -> None: Sets the car's price to the specified value.<br>
-*set_size(self, size: str) -> None: Sets the car's size to the specified value. The size should be one of 'S' for small, 'M' for medium, or 'L' for large. Use conversion of lowercase characters to uppercase using size.upper().<br>
-><strong>str Method:</strong><br>
-*_str_(self) -> str: Returns a formatted string representing the car, following the format "Car (color) - P(price, formatted to two decimal places) -(size descriptor)". The size descriptor is determined based on the size character ('small' for 'S', 'medium' for 'M', and 'large' for 'L').<br>
-<strong>Example Strings:</strong><br>
+<strong>Getter Methods:</strong><br>
+* get_color(self) -> str: Returns the car's color.<br>
+* get_price(self) -> float: Returns the car's price.<br>
+* get_size(self) -> str: Returns the car's size.<br>
+<strong>Setter Methods:</strong><br>
+* set color (self, color: str) > None: Sets the car's color to the specified value.<br>
+* set_price(self, price: float) -> None: Sets the car's price to the specified value.<br>
+* set_size(self, size: str) -> None: Sets the car's size to the specified value. The size should be one of 'S' for small, 'M' for medium, or 'L' for large. Use conversion of lowercase characters to uppercase using size.upper().<br>
+<strong>str Method:</strong><br>
+* _str_(self) -> str: Returns a formatted string representing the car, following the format "Car (color) - P(price, formatted to two decimal places) -(size descriptor)". The size descriptor is determined based on the size character ('small' for 'S', 'medium' for 'M', and 'large' for 'L').<br>
+<br><strong>Example Strings:</strong><br>
 For a red car priced at 19999.85 and of medium size: "Car (red) P19999.85 - medium"<br>
 For a blue car priced at 50000.00 and large: "Car (blue) - P50000.00 -large"<br>
 Note: Each class should be defined in its own file, with the file name following camelCase conventions (e.g., bankAccount.py).<br></p>
