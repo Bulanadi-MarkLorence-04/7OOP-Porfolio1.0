@@ -136,13 +136,13 @@ print("\n")
       <h2>Outputs</h2>
       <div class="code-box">
         <pre><code>
-Enter the name of the Book: <span style="color:#FF6EC7;">Harry Potter</span>
-Enter the name of the Author: Enzo Bulonodi
-Enter the Year of Publication:2009
-Enter the Genre of the Book: Fiction
-Enter the name of the Library: CCA Library
-Enter you Member ID: 454545
-Enter the Book Return Date: 2025-67-27
+Enter the name of the Book: <span class="user">Harry Potter</span><span class="user"></span>
+Enter the name of the Author: <span class="user">Enzo Bulanadi</span>
+Enter the Year of Publication: <span class="user">2009</span>
+Enter the Genre of the Book: <span class="user">Fiction</span>
+Enter the name of the Library: <span class="user">CCA Library</span>
+Enter you Member ID: <span class="user">454545</span>
+Enter the Book Return Date: <span class="user">2025-07-27</span>
 You have successfully reserve the book Harry Potter' by Enzo Bulanadi
 Year of Publication: 2009
 Genre: Fiction
@@ -176,47 +176,38 @@ Return Date: 2023-06-28
       <h2>Code</h2>
       <div class="code-box">
         <pre><code>
-day = int(input("Enter Day number (1-7): "))
-
+print("Problem 4\n")
+print("Enter number form 1-7 to view the corresponding day")
+day = int(input("Enter day: "))
 if day == 1:
-    print("Monday")
+print("Monday")
 elif day == 2:
-    print("Tuesday")
+print("Tuesday")
 elif day == 3:
-    print("Wednesday")
+print("Wednesday")
 elif day == 4:
-    print("Thursday")
+print("Thursday")
 elif day == 5:
-    print("Friday")
+print("Friday")
 elif day == 6:
-    print("Saturday")
+print("Saturday")
 elif day == 7:
-    print("Sunday")
-else:
-    print("Invalid input")
+print("Sunday")
+elif day<=8:
+print("Invalid input please Enter 1-7")
         </code></pre>
       </div>
       <h2>Outputs</h2>
       <div class="code-box">
         <pre><code>
-Enter day: 1
-Monday
-        </code></pre>
-      </div>
-      <div class="code-box">
-        <pre><code>
-Enter day: 4
-Thursday
-        </code></pre>
-      </div>
-      <div class="code-box">
-        <pre><code>
-Enter day: 5
+Problem 4
+Enter number form 1-7 to view the corresponding day
+Enter day: <span class="user">5</span>
 Friday
         </code></pre>
       </div>
      </section>
-     <a href="https://github.com/tayting05/7OOP-Lab-Task/blob/main/Activities/act-pdf/TAYTING-MIDTERMLAB1.pdf" target="_blank" class="btn"> View PDF Here</a>
+     <a href="" target="_blank" class="btn"> View PDF Here</a>
 
     <footer>
       Aug 30, 2025 Bulanadi, Mark Lorence | Object-Oriented Programming Portfolio
