@@ -1,201 +1,136 @@
 
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Midterm Lab Task 1 | Bulanadi, Mark Lorence</title>
+  <title>Final Lab Task 1 | Bulanadi, Mark Lorence</title>
   <link rel="stylesheet" href="../assets/css/Laboratory.css">
-  <link rel="icon" href="../assets/pics/bulanadiProf.png" type="image/png">
+  <link rel="icon" href="../assets/pics/bulanadiProf.png" type="image/png"> 
 </head>
 <body>
   <div class="container">
     <header>
-      <a class="back" href="https://bulanadi-marklorence-04.github.io/7OOP-Porfolio1.0/index.html">← Back to Portfolio</a>
-      <h1>Midterm Lab Task 1</h1>
-      <p class="muted">Escape sequence, User input, Placeholders, and Conditional (Problems 1–4)</p>
+       <h1>Final Lab Task 1</h1>
+       <p class="muted"><strong>Encapsulation</strong></p>
     </header>
 
     <section>
-      <h2>Problem #1</h2>
-      <p class="muted">Displays basic user information using print statements.</p>
-      <h2>Code</h2>
-      <div class="code-box">
-        <pre><code>
-print("Problem 1\n")
-full_name = "John Doe"
-_email = "johndoe@example.com"
-univer_sity = "ABC University"
-          
-print("Name:\t\t\t", full_name)
-print("Email:\t\t\t"_email)
-print("University:\t\t", univer_sity)
-        </code></pre>
-      </div>   
-      <h2>Output</h2>
-      <div class="code-box">
-        <pre><code>
-Database Record
-Name:                    John Doe
-Email:                   john.doe@example.com
-University:              ABC University
-        </code></pre>
-      </div>    
+      <h2>Problem #1: A Car That Works</h2>
+      <p>For this program, you are tasked to define the following:<br>
+Class Car:<br>
+><strong>Properties:</strong><br>
+*color (type: str): Represents the color of the car.<br>
+*price (type: float): Holds the price of the car.<br>
+*size (type: str): Indicates the size of the car, where 'S' represents small, 'M' represents medium, and 'L' represents large.<br>
+><strong>Constructor:</strong><br>
+*__init_(self, color: str, price: float, size: str): Initializes the car's color, price, and size properties. The size is standardized to uppercase using size.upper().<br>
+Methods<br>
+><strong>Getter Methods:</strong><br>
+*get_color(self) -> str: Returns the car's color.<br>
+*get_price(self) -> float: Returns the car's price.<br>
+*get_size(self) -> str: Returns the car's size.<br>
+><strong>Setter Methods:</strong><br>
+*set color (self, color: str) > None: Sets the car's color to the specified value.<br>
+*set_price(self, price: float) -> None: Sets the car's price to the specified value.<br>
+*set_size(self, size: str) -> None: Sets the car's size to the specified value. The size should be one of 'S' for small, 'M' for medium, or 'L' for large. Use conversion of lowercase characters to uppercase using size.upper().<br>
+><strong>str Method:</strong><br>
+*_str_(self) -> str: Returns a formatted string representing the car, following the format "Car (color) - P(price, formatted to two decimal places) -(size descriptor)". The size descriptor is determined based on the size character ('small' for 'S', 'medium' for 'M', and 'large' for 'L').<br>
+<strong>Example Strings:</strong><br>
+For a red car priced at 19999.85 and of medium size: "Car (red) P19999.85 - medium"<br>
+For a blue car priced at 50000.00 and large: "Car (blue) - P50000.00 -large"<br>
+Note: Each class should be defined in its own file, with the file name following camelCase conventions (e.g., bankAccount.py).<br></p>
+      
     </section>
 
     <section>
-      <h2>Problem #2</h2>
-      <p class="muted">Shows how to use variables, strings, and formatted output.</p>
-      <h2>Code</h2>
-      <div class="code-box">
-        <pre><code>
-receiver_name = "John"
-sender name = "Jane"
-subject = "Greetings"
-version = 1.2
-discount = 10.5
-status = "A"
-code = "ABCD123"
-location = "City XYZ"
-age = 30
-company = "ABC Corporation"
-website = "www.example.com"
-phone = "+1 123-456-7890"
-job_title = "Software Engineer"
-department = "Engineering"
-          
-message = """
-Dear %s, I hope this email finds you well.
-I wanted to reach out and say hello.
-I hope you are doing well and enjoying your day.
-It's been a while since we last spoke, and I wanted to catch up with you.
-Let's plan to meet up soon and have a great time together!
-Subject: %s
-Sender: %s
-Version: %.1f
-Discount: %.2f%%
-Status: %s
-Code: %s
-Location: %s
-Age: %d
-Company: %s
-Website: %s
-Phone: %s
-Job Title: %s
-Department: %s
-""" % (receiver_name, subject, sender_name, version, discount, status, code, location, age, company, website, phone, job_title, department)
-print(message)
-        </code></pre>
-      </div>
-      <h2>Output</h2>
-      <div class="code-box">
-        <pre><code>
-Dear John,I hope this email finds you well.
-I wanted to reach out and say hello.
-I hope you are doing well and enjoying your day.
-It's been a while since we last we spoke, and I wanted to catch up with you.
-Let's plan to meet up soon and have a great time together! 
-Subject: Jane
-Version: 1.2
-Discount: 10.50%
-Status: A
-Code: ABCD123
-Location: City XYZ
-Age: 30
-Company: ABC Corporation
-Website:www.example.com
-Phone: +1 123-456-7890
-Job Tittle: Software Engineer
-Department: Engineering
-        </code></pre>
-      </div> 
-    </section>
+      <h2>Code for carClass.py File</h2>
+<div class="code-box">
+  <pre><code>
+    
+class Car:
+    def __init__(self, color: str, price: float, size: str):
+        self.color = color
+        self.price = price
+        self.size = size.upper()
 
-    <section>
-      <h2>Problem #3</h2>
-      <p class="muted">Demonstrates input collection and string formatting for displaying book information.</p>
-      <h2>Code</h2>
-      <div class="code-box">
-        <pre><code>
-title = input("Enter the name of the Book:")
-author = input("Enter the name of the Author:")
-year_publication = int(input("Enter the Year of Publication:"))
-genre = input("Enter the Genre of the Book:")
-library = input("Enter the name of the Library:")
-member_id = input("Enter you Member ID:")
-return_date = input("Enter the Book Return Date:")
-          
-print(f"You have successfully reserve the book '{title}' by (author}")
-print("Year of Publication: %s" %year_publication)
-print("Genre: %s" %genre)
-print("Library: %s" %library)
-print("Member 10: %s" %member_id)
-print("Return Date: %s" %return_date)
-print("\n")
-        </code></pre>
-      </div>
-      <h2>Outputs</h2>
-      <div class="code-box">
-        <pre><code>
-Enter the name of the Book: <span class="user">Harry Potter</span><span class="user"></span>
-Enter the name of the Author: <span class="user">Enzo Bulanadi</span>
-Enter the Year of Publication: <span class="user">2009</span>
-Enter the Genre of the Book: <span class="user">Fiction</span>
-Enter the name of the Library: <span class="user">CCA Library</span>
-Enter you Member ID: <span class="user">454545</span>
-Enter the Book Return Date: <span class="user">2025-07-27</span>
-You have successfully reserve the book 'Harry Potter' by Enzo Bulanadi
-Year of Publication: 2009
-Genre: Fiction
-Library: CCA Library
-Member ID: 454545
-Return Date: 2025-07-27
-        </code></pre>
-      </div>
-    </section>
+    def set_color(self, color: str) -> None:
+        self.color = color
 
-    <section>
-      <h2>Problem #4</h2>
-      <p class="muted">Shows conditional statements to display the day of the week based on user input.</p>
-      <h2>Code</h2>
+    def set_price(self, price: float) -> None:
+        self.price = price
+
+    def set_size(self, size: str) -> None:
+        self.size = size.upper()
+
+    def get_color(self) -> str:
+        return self.color
+
+    def get_price(self) -> float:
+        if self.price >= 0:
+            return self.price
+        else:
+            return 0
+
+    def get_size(self) -> str:
+        return self.size
+
+    def __str__(self) -> str:
+        size_desc = {"S": "small", "M": "medium", "L": "large"}.get(self.size, "unknown")
+        return f"Car ({self.color}) P{self.price:.2f} {size_desc}"
+    
+  </code></pre>
+</div>
+      <h2>Code for main.py File</h2>
       <div class="code-box">
         <pre><code>
-print("Problem 4\n")
-print("Enter number form 1-7 to view the corresponding day")
-day = int(input("Enter day: "))
-if day == 1:
-print("Monday")
-elif day == 2:
-print("Tuesday")
-elif day == 3:
-print("Wednesday")
-elif day == 4:
-print("Thursday")
-elif day == 5:
-print("Friday")
-elif day == 6:
-print("Saturday")
-elif day == 7:
-print("Sunday")
-elif day<=8:
-print("Invalid input please Enter 1-7")
+
+from carclass import Car
+
+def main():
+    print("Action: Invoking the Car class constructor using Car('red', 19999.85, 'M').")
+    car1 = Car("red", 19999.85, "M")
+    print("Output:")
+    print(car1)
+
+    print("\nAction: Invoking the Car class constructor using Car('blue', 50000.00, 'L').")
+    car2 = Car("blue", 50000.00, "L")
+    print("Output:")
+    print(car2)
+
+    print("\nAction: Invoking the Car class constructor using Car('green', 12345.67, 'S').")
+    car3 = Car("green", 12345.67, "S")
+    print("Output:")
+    print(car3)
+
+if __name__ == "__main__":
+    main()
+          
         </code></pre>
       </div>
-      <h2>Outputs</h2>
+            <p>Output)</p>
       <div class="code-box">
         <pre><code>
-Problem 4
-Enter number form 1-7 to view the corresponding day
-Enter day: <span class="user">5</span>
-Friday
+          
+Action: Invoking the Car class constructor using Car('red', 19999.85, 'M').
+Output:
+Car (red) - P19999.85 - medium
+          
+Action: Invoking the Car class constructor using Car('blue', 50000.00, 'L').
+Output:
+Car (blue) - P50000.00 - large
+          
+Action: Invoking the Car class constructor using Car('green', 12345.67, 's').
+Output:
+Car (green) - P12345.67 - small
+          
         </code></pre>
       </div>
-     </section>
-     <a href="" target="_blank" class="btn"> View PDF Here</a>
+      <a class="btn" href="https://bulanadi-marklorence-04.github.io/7OOP-Porfolio1.0/index.html">← Back to Portfolio</a>
+
 
     <footer>
-      Aug 30, 2025 Bulanadi, Mark Lorence | Object-Oriented Programming Portfolio
+      Oct 18, 2025 Bulanadi, Mark Lorence | Object-Oriented Programming Portfolio
     </footer>
   </div>
 </body>
