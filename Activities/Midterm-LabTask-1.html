@@ -4,14 +4,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Midterm Lab Task 1 - Justine Jay Tayting</title>
+  <title>Midterm Lab Task 1 | Bulanadi, Mark Lorence</title>
   <link rel="stylesheet" href="../assets/css/Laboratory.css">
-  <link rel="icon" href="../assets/images/bulanadiProf.png" type="image/png">
+  <link rel="icon" href="../assets/pics/bulanadiProf.png" type="image/png">
 </head>
 <body>
   <div class="container">
     <header>
-      <a class="back" href="https://tayting05.github.io/7OOP-Lab-Task/index.html">← Back to Portfolio</a>
+      <a class="back" href="https://bulanadi-marklorence-04.github.io/7OOP-Porfolio1.0/index.html">← Back to Portfolio</a>
       <h1>Midterm Lab Task 1</h1>
       <p class="muted">Escape sequence, User input, Placeholders, and Conditional (Problems 1–4)</p>
     </header>
@@ -63,7 +63,8 @@ website "www.example.com"
 phone "+1 123-456-7890"
 job_title "Software Engineer"
 department "Engineering"
-message
+          
+message = """
 Dear %s, I hope this email finds you well.
 I wanted to reach out and say hello.
 I hope you are doing well and enjoying your day.
@@ -82,7 +83,7 @@ Website: %s
 Phone: %s
 Job Title: %s
 Department: %s
-"""% (receiver_name, subject, sender_name, version, discount, status, code, location, age, company, website, phone, job_title, department)
+""" % (receiver_name, subject, sender_name, version, discount, status, code, location, age, company, website, phone, job_title, department)
 print(message)
         </code></pre>
       </div>
