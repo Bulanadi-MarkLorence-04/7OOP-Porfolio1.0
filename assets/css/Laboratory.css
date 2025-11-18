@@ -105,16 +105,26 @@ a:hover {
   text-shadow: 0 0 6px var(--accent);
 }
 
-/* Code boxes */
 .code-box {
-  background: #1e293b;
+  background: rgba(10, 20, 60, 0.55); /* deep blue glass */
+  backdrop-filter: blur(15px);         /* glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.06); /* subtle border */
   padding: 15px;
   border-radius: 8px;
   overflow: auto;
   max-height: 250px;
-  font-family: monospace;
+  font-family: 'JetBrains Mono', monospace; /* code aesthetic */
   margin: 10px 0;
+  color: #F1F4FF; /* cool white text */
+  box-shadow: 0 0 8px rgba(0, 180, 255, 0.2); /* subtle neon glow */
+  transition: all 0.3s ease;
 }
+
+/* Optional: hover glow effect for code box */
+.code-box:hover {
+  box-shadow: 0 0 15px rgba(0, 180, 255, 0.4);
+}
+
 
 /* Footer */
 footer {
