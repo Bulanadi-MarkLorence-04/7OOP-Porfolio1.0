@@ -1,0 +1,139 @@
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Final Lab Task 1 | Bulanadi, Mark Lorence</title>
+  <link rel="stylesheet" href="../assets/css/Laboratory.css">
+  <link rel="icon" href="../assets/pics/bulanadiProf.png" type="image/png"> 
+</head>
+<body>
+  <div class="container">
+    <header>
+       <h1>Final Lab Task 1</h1>
+       <p class="muted"><strong>Encapsulation</strong></p>
+    </header>
+
+    <section>
+      <h2>Problem #1: A Car That Works</h2>
+      <p>For this program, you are tasked to define the following:<br>
+<br><strong>Class Car:</strong><br>
+<strong>Properties:</strong><br>
+* color (type: str): Represents the color of the car.<br>
+* price (type: float): Holds the price of the car.<br>
+* size (type: str): Indicates the size of the car, where 'S' represents small, 'M' represents medium, and 'L' represents large.<br>
+<br><strong>Constructor:</strong><br>
+* __init_(self, color: str, price: float, size: str): Initializes the car's color, price, and size properties. The size is standardized to uppercase using size.upper().<br>
+<br><strong>Methods</strong><br>
+<strong>Getter Methods:</strong><br>
+* get_color(self) -> str: Returns the car's color.<br>
+* get_price(self) -> float: Returns the car's price.<br>
+* get_size(self) -> str: Returns the car's size.<br>
+<strong>Setter Methods:</strong><br>
+* set color (self, color: str) > None: Sets the car's color to the specified value.<br>
+* set_price(self, price: float) -> None: Sets the car's price to the specified value.<br>
+* set_size(self, size: str) -> None: Sets the car's size to the specified value. The size should be one of 'S' for small, 'M' for medium, or 'L' for large. Use conversion of lowercase characters to uppercase using size.upper().<br>
+<strong>str Method:</strong><br>
+* _str_(self) -> str: Returns a formatted string representing the car, following the format "Car (color) - P(price, formatted to two decimal places) -(size descriptor)". The size descriptor is determined based on the size character ('small' for 'S', 'medium' for 'M', and 'large' for 'L').<br>
+<br><strong>Example Strings:</strong><br>
+For a red car priced at 19999.85 and of medium size: "Car (red) P19999.85 - medium"<br>
+For a blue car priced at 50000.00 and large: "Car (blue) - P50000.00 -large"<br>
+Note: Each class should be defined in its own file, with the file name following camelCase conventions (e.g., bankAccount.py).<br></p>
+      
+    </section>
+
+    <section>
+      <h3>Code for carClass.py File</h3>
+<div class="code-box">
+  <pre><code>
+    
+class Car:
+    def __init__(self, color: str, price: float, size: str):
+        self.color = color
+        self.price = price
+        self.size = size.upper()
+
+    def set_color(self, color: str) -> None:
+        self.color = color
+
+    def set_price(self, price: float) -> None:
+        self.price = price
+
+    def set_size(self, size: str) -> None:
+        self.size = size.upper()
+
+    def get_color(self) -> str:
+        return self.color
+
+    def get_price(self) -> float:
+        if self.price >= 0:
+            return self.price
+        else:
+            return 0
+
+    def get_size(self) -> str:
+        return self.size
+
+    def __str__(self) -> str:
+        size_desc = {"S": "small", "M": "medium", "L": "large"}.get(self.size, "unknown")
+        return f"Car ({self.color}) P{self.price:.2f} {size_desc}"
+    
+  </code></pre>
+</div>
+      <h3>Code for main.py File</h3>
+      <div class="code-box">
+        <pre><code>
+
+from carclass import Car
+
+def main():
+    print("Action: Invoking the Car class constructor using Car('red', 19999.85, 'M').")
+    car1 = Car("red", 19999.85, "M")
+    print("Output:")
+    print(car1)
+
+    print("\nAction: Invoking the Car class constructor using Car('blue', 50000.00, 'L').")
+    car2 = Car("blue", 50000.00, "L")
+    print("Output:")
+    print(car2)
+
+    print("\nAction: Invoking the Car class constructor using Car('green', 12345.67, 'S').")
+    car3 = Car("green", 12345.67, "S")
+    print("Output:")
+    print(car3)
+
+if __name__ == "__main__":
+    main()
+          
+        </code></pre>
+      </div>
+           <h3>Output</h3>
+      <div class="code-box">
+        <pre><code>
+          
+Action: Invoking the Car class constructor using Car('red', 19999.85, 'M').
+Output:
+Car (red) - P19999.85 - medium
+          
+Action: Invoking the Car class constructor using Car('blue', 50000.00, 'L').
+Output:
+Car (blue) - P50000.00 - large
+          
+Action: Invoking the Car class constructor using Car('green', 12345.67, 's').
+Output:
+Car (green) - P12345.67 - small
+          
+        </code></pre>
+      </div>
+    </section>
+      <a class="btn" href="https://bulanadi-marklorence-04.github.io/7OOP-Porfolio1.0/index.html">← Back to Portfolio</a>
+
+
+    <footer>
+      Oct 18, 2025 Bulanadi, Mark Lorence | Object-Oriented Programming Portfolio
+    </footer>
+  </div>
+</body>
+</html>
