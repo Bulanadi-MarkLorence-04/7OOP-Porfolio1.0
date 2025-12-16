@@ -44,359 +44,166 @@ NIGHTIME CALLS<br>
         <img src="https://raw.githubusercontent.com/Bulanadi-MarkLorence-04/7OOP-Porfolio1.0/main/assets/pics/gui.PNG" alt="GUI sample">
       </div>
       </p>
-      
    </section>
-
+    
     <section>
-      <h3>MYSQL File Code</h3>
+      <h3>Source Code</h3>
 <div class="code-box">
   <pre><code>
     
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Nov 30, 2025 at 04:22 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
+import tkinter as tk
+from tkinter import ttk, messagebox
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+class CallChargeApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Long Distance Call Charge Calculator")
+        self.root.geometry("550x350")
+        self.root.resizable(False, False)
+        self.root.config(bg="gray92")
 
---
--- Database: `moviesdb`
---
+        self.create_widgets()
+        self.load_rates()
 
--- --------------------------------------------------------
+    def load_rates(self):
+        self.day_rates = {
+            "American Region": 50 / 3,
+            "Asian Region": 30 / 2,
+            "African Region": 40 / 3,
+            "European Region": 35 / 2
+        }
 
---
--- Table structure for table `moviemenu`
---
+        self.night_rates = {
+            "American Region": 45 / 3,
+            "Asian Region": 32 / 2,
+            "African Region": 36 / 3,
+            "European Region": 30 / 2
+        }
 
-CREATE TABLE `moviemenu` (
-  `movie_id` int(10) NOT NULL,
-  `title` varchar(50) NOT NULL,
-  `main_actor` varchar(50) NOT NULL,
-  `director` varchar(50) NOT NULL,
-  `genre` varchar(25) NOT NULL,
-  `gross_sales` float NOT NULL,
-  `ratings` varchar(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+    def create_widgets(self):
+        frame = tk.LabelFrame(self.root, text="User Input", padx=10, pady=10)
+        frame.pack(fill="x", padx=10, pady=10)
 
---
--- Dumping data for table `moviemenu`
---
+        tk.Label(frame, text="Length of Call (in minutes):").grid(row=0, column=0, sticky="w")
+        self.duration_entry = tk.Entry(frame, width=20)
+        self.duration_entry.grid(row=0, column=1, padx=5)
 
-INSERT INTO `moviemenu` (`movie_id`, `title`, `main_actor`, `director`, `genre`, `gross_sales`, `ratings`) VALUES
-(1, 'Sanggre The Movie', 'Bianca Umali', 'Suzete Ewan', 'Fantasy', 6590000, 'G'),
-(2, 'Wicked ', 'Ariana Grande and Cyntia Erivo', 'Jon Chu', 'Fantasy', 500000, 'G'),
-(3, 'Wicked For Good', 'Ariana Grande and Cyntia Erivo', 'Jon Chu', 'Fantasy', 6590000, 'G'),
-(4, 'The Conjuring', 'Vera Farmiga and Patrick Wilson', 'James Wan', 'Horror', 60000100, 'SPG'),
-(5, 'Barbie', 'Margot Robbie', ' Greta Gerwig ', 'Fantasy', 6590000, 'G');
+        tk.Label(frame, text="Destination Code:").grid(row=1, column=0, sticky="w")
+        self.destination_cb = ttk.Combobox(frame, width=18, state="readonly")
+        self.destination_cb["values"] = (
+            "American Region",
+            "Asian Region",
+            "African Region",
+            "European Region"
+        )
+        self.destination_cb.current(0)
+        self.destination_cb.grid(row=1, column=1, padx=5)
 
---
--- Indexes for dumped tables
---
+        tk.Label(frame, text="Time Code:").grid(row=2, column=0, sticky="w")
+        self.time_var = tk.StringVar()
 
---
--- Indexes for table `moviemenu`
---
-ALTER TABLE `moviemenu`
-  ADD PRIMARY KEY (`movie_id`);
-COMMIT;
+        tk.Radiobutton(
+            frame, text="Day Time",
+            variable=self.time_var, value="Day Time"
+        ).grid(row=2, column=1, sticky="w")
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+        tk.Radiobutton(
+            frame, text="Night Time",
+            variable=self.time_var, value="Night Time"
+        ).grid(row=2, column=1, sticky="e")
 
-    
-  </code></pre>
-</div>
-      <h3>Code for Movie.py File</h3>
-      <div class="code-box">
-        <pre><code>
+        output_frame = tk.LabelFrame(self.root, text="Total Charge", padx=10, pady=10)
+        output_frame.pack(fill="both", expand=True, padx=10, pady=5)
 
-import mysql.connector
+        self.output_text = tk.Text(output_frame, height=6, width=60)
+        self.output_text.pack()
 
-# Connect to MySQL
-conn = mysql.connector.connect(
-    host="localhost",
-    user="test_user",
-    password="EkSeNa",
-    database="moviesDB"
-)
-cursor = conn.cursor()
+        button_frame = tk.Frame(self.root)
+        button_frame.pack(pady=5)
 
-def add_movie():
-    title = input("Enter Movie: ")
-    mov_id = input("Enter Movie ID: ")
-    actor = input("Enter the Main Lead: ")
-    director = input("Enter Director: ")
-    genre = input("Enter Movie Genre: ")
-    gross_sales = float(input("Enter Gross Sales: "))
-    rating = input("Enter Rating: ")
+        tk.Button(
+            button_frame, text="Compute Charge", width=15,
+            command=self.compute_charge
+        ).grid(row=0, column=0, padx=5)
 
-    cursor.execute(
-        "INSERT INTO moviemenu (title, movie_id, main_actor, director, genre, gross_sales, ratings) "
-        "VALUES (%s, %s, %s, %s, %s, %s, %s)",
-        (title, mov_id, actor, director, genre, gross_sales, rating)
-    )
-    conn.commit()
-    print("\nMovie added successfully!\n")
-    view_movie()
+        tk.Button(
+            button_frame, text="Reset", width=10,
+            command=self.reset
+        ).grid(row=0, column=1, padx=5)
 
+        tk.Button(
+            button_frame, text="About", width=10,
+            command=self.about
+        ).grid(row=0, column=2, padx=5)
 
-def view_movie():
-    cursor.execute("SELECT * FROM moviemenu")
-    rows = cursor.fetchall()
+        tk.Button(
+            button_frame, text="Close", width=10,
+            command=self.root.quit
+        ).grid(row=0, column=3, padx=5)
 
-    if rows:
-        print("\nMovie List:")
-        for row in rows:
-            print(row)
-    else:
-        print("\nNo movie found.")
-    print()
+    def compute_charge(self):
+        try:
+            duration = int(self.duration_entry.get())
+            if duration <= 0:
+                raise ValueError
+        except ValueError:
+            messagebox.showerror("Error", "Please enter a valid numeric duration.")
+            return
 
+        destination = self.destination_cb.get()
+        time_code = self.time_var.get()
 
-def update_movie():
-    movie_id = input("Enter Movie ID to update: ")
+        if time_code == "":
+            messagebox.showerror("Error", "Please select a time code.")
+            return
 
-    title = input("Enter new movie title: ")
-    main_actor = input("Enter new Main Lead: ")
-    director = input("Enter new Director: ")
-    genre = input("Enter new Genre: ")
-    gross_sales = float(input("Enter new Gross Sales: "))
-    ratings = input("Enter new Ratings: ")
-
-    cursor.execute(
-        "UPDATE moviemenu SET title=%s, main_actor=%s, director=%s, genre=%s, gross_sales=%s, ratings=%s WHERE movie_id=%s",
-        (title, main_actor, director, genre, gross_sales, ratings, movie_id)
-    )
-    conn.commit()
-    print("\nMovie updated successfully!\n")
-
-
-def delete_movie():
-    movie_id = input("Enter Movie ID to delete: ")
-
-    cursor.execute("DELETE FROM moviemenu WHERE movie_id=%s", (movie_id,))
-    conn.commit()
-    print("\nMovie deleted successfully!")
-    view_movie()
-
-
-def search_movie():
-    title = input("Enter movie title to search: ")
-
-    cursor.execute("SELECT * FROM moviemenu WHERE title LIKE %s", (f"%{title}%",))
-    row = cursor.fetchone()
-
-    if row:
-        print("\nMovie found:")
-        print(row)
-    else:
-        print("\nNo matching movie found.\n")
-
-
-def count_movies():
-    cursor.execute("SELECT COUNT(*) FROM moviemenu")
-    total = cursor.fetchone()[0]
-    print(f"\nTotal movies in database: {total}\n")
-
-
-def menu():
-    while True:
-        print("\n----- MOVIE DATABASE CLI -----")
-        print("1. Add Movie")
-        print("2. View Movies")
-        print("3. Update Movie")
-        print("4. Delete a Movie")
-        print("5. Search a Movie")
-        print("6. Display Total Movie Records")
-        print("7. Exit")
-
-        choice = input("Choose an option (1-6): ")
-
-        if choice == "1":
-            add_movie()
-        elif choice == "2":
-            view_movie()
-        elif choice == "3":
-            update_movie()
-        elif choice == "4":
-            delete_movie()
-        elif choice == "5":
-            search_movie()
-        elif choice == "6":
-            count_movies()
-        elif choice == "7":
-            print("\nClosing program.")
-            cursor.close()
-            conn.close()
-            break
+        if time_code == "Day Time":
+            rate = self.day_rates[destination]
         else:
-            print("Invalid choice.\n")
+            rate = self.night_rates[destination]
+
+        total_charge = duration * rate
+
+        self.output_text.delete("1.0", tk.END)
+        self.output_text.insert(tk.END, "Transaction Summary...\n")
+        self.output_text.insert(tk.END, f"\nDuration of Call: {duration} minute(s)\n")
+        self.output_text.insert(tk.END, f"Destination Code: {destination}\n")
+        self.output_text.insert(tk.END, f"Time Code: {time_code}\n")
+        self.output_text.insert(tk.END, f"Total Charge is: Php {total_charge:.2f}")
+
+    def reset(self):
+        self.duration_entry.delete(0, tk.END)
+        self.destination_cb.current(0)
+        self.time_var.set("")
+        self.output_text.delete("1.0", tk.END)
+
+    def about(self):
+        messagebox.showinfo(
+            "About",
+            "Hello! I'm Mark Lorence Bulanadi\nYou can call me Enzo."
+        )
 
 
 if __name__ == "__main__":
-    menu()
+    root = tk.Tk()
+    app = CallChargeApp(root)
 
-          
-        </code></pre>
-      </div>
-           <h3>Output</h3>
-      <div class="code-box">
-        <pre><code>
-   <strong>#ADDING</strong>       
------ MOVIE DATABASE CLI -----
-1. Add Movie
-2. View Movies
-3. Update Movie
-4. Delete a Movie
-5. Search a Movie
-6. Display Total Movie Records
-7. Exit
-Choose an option (1-6): <span class="user">1</span>
-Enter Movie:<span class="user">Enola Holmes</span>
-Enter Movie ID: <span class="user">6</span>
-Enter the Main Lead: <span class="user">Millie Bobbie Brown</span>
-Enter Director: <span class="user">Harry Bradbeer</span>
-Enter Movie Genre: <span class="user">Adventure</span>
-Enter Gross Sales: <span class="user">7600000</span>
-Enter Rating: <span class="user">PG</span>
+    root.update_idletasks()
+    w = root.winfo_width()
+    h = root.winfo_height()
+    x = (root.winfo_screenwidth() // 2) - (w // 2)
+    y = (root.winfo_screenheight() // 2) - (h // 2)
+    root.geometry(f"+{x}+{y}")
 
-Movie added successfully!
+    root.mainloop()
 
-Movie List:
-(1, 'Sanggre The Movie', 'Bianca Umali', 'Suzete Ewan', 'Fantasy', 6590000.0, 'G')
-(2, 'Wicked', 'Ariana Grande and Cyntia Erivo', 'Jon Chu', 'Fantasy', 85000000.0, 'G')
-(3, 'Wicked For Good', 'Ariana Grande and Cyntia Erivo', 'Jon Chu', 'Fantasy', 6590000.0, 'G')
-(4, 'The Conjuring', 'Vera Farmiga and Patrick Wilson', 'James Wan', 'Horror', 60000100.0, 'SPG')
-(5, 'Barbie', 'Margot Robbie', ' Greta Gerwig ', 'Fantasy', 6590000.0, 'G')
-(6, 'Enola Holmes', 'Millie Bobbie Brown', 'Harry Bradbeer', 'Adventure', 76000000.0, 'PG')
-
-        </code></pre>
-      </div>
-       <div class="code-box">
-        <pre><code>
-   <strong>#VIEWING</strong>       
------ MOVIE DATABASE CLI -----
-1. Add Movie
-2. View Movies
-3. Update Movie
-4. Delete a Movie
-5. Search a Movie
-6. Display Total Movie Records
-7. Exit
-Choose an option (1-6): <span class="user">2</span>
-
-
-Movie List:
-(1, 'Sanggre The Movie', 'Bianca Umali', 'Suzete Ewan', 'Fantasy', 6590000.0, 'G')
-(2, 'Wicked', 'Ariana Grande and Cyntia Erivo', 'Jon Chu', 'Fantasy', 85000000.0, 'G')
-(3, 'Wicked For Good', 'Ariana Grande and Cyntia Erivo', 'Jon Chu', 'Fantasy', 6590000.0, 'G')
-(4, 'The Conjuring', 'Vera Farmiga and Patrick Wilson', 'James Wan', 'Horror', 60000100.0, 'SPG')
-(5, 'Barbie', 'Margot Robbie', ' Greta Gerwig ', 'Fantasy', 6590000.0, 'G')
-(6, 'Enola Holmes', 'Millie Bobbie Brown', 'Harry Bradbeer', 'Adventure', 76000000.0, 'PG')
-
-        </code></pre>
-      </div>
-       <div class="code-box">
-        <pre><code>
-   <strong>#UPDATING</strong>       
------ MOVIE DATABASE CLI -----
-1. Add Movie
-2. View Movies
-3. Update Movie
-4. Delete a Movie
-5. Search a Movie
-6. Display Total Movie Records
-7. Exit
-Choose an option (1-6): <span class="user">3</span>
-Enter Movie ID to update: <span class="user">2</span>
-Enter new movie title: <span class="user">Wicked</span>
-Enter new Main Lead: <span class="user">Ariana Grande and Cyntia Erivo</span>
-Enter new Director: <span class="user">Jon Chu</span> 
-Enter new Genre: <span class="user">Fantasy</span>
-Enter new Gross Sales: <span class="user">50000000</span>
-Enter new Ratings: <span class="user">G</span>
-
-Movie updated successfully!
-
-        </code></pre>
-      </div>
-          <div class="code-box">
-        <pre><code>
-   <strong>#DELETING</strong>       
------ MOVIE DATABASE CLI -----
-1. Add Movie
-2. View Movies
-3. Update Movie
-4. Delete a Movie
-5. Search a Movie
-6. Display Total Movie Records
-7. Exit
-Choose an option (1-6): <span class="user">4</span>
-Enter Movie ID to delete: <span class="user">6</span>
-
-Movie deleted successfully!
-
-Movie List:
-(1, 'Sanggre The Movie', 'Bianca Umali', 'Suzete Ewan', 'Fantasy', 6590000.0, 'G')
-(2, 'Wicked', 'Ariana Grande and Cyntia Erivo', 'Jon Chu', 'Fantasy', 5000000.0, 'G')
-(3, 'Wicked For Good', 'Ariana Grande and Cyntia Erivo', 'Jon Chu', 'Fantasy', 6590000.0, 'G')
-(4, 'The Conjuring', 'Vera Farmiga and Patrick Wilson', 'James Wan', 'Horror', 60000100.0, 'SPG')
-(5, 'Barbie', 'Margot Robbie', ' Greta Gerwig ', 'Fantasy', 6590000.0, 'G')
-          
-        </code></pre>
-      </div>
-                <div class="code-box">
-        <pre><code>
-   <strong>#SEARCHING</strong>       
------ MOVIE DATABASE CLI -----
-1. Add Movie
-2. View Movies
-3. Update Movie
-4. Delete a Movie
-5. Search a Movie
-6. Display Total Movie Records
-7. Exit
-Choose an option (1-6): <span class="user">5</span>
-Enter movie title to search: <span class="user">Wicked for good</span>
-
-Movie found:
-(3, 'Wicked For Good', 'Ariana Grande and Cyntia Erivo', 'Jon Chu', 'Fantasy', 6590000.0, 'G')
-
-        </code></pre>
-      </div>
-                      <div class="code-box">
-        <pre><code>
-   <strong>#DISPLAY TOTAL RECORDS</strong>       
------ MOVIE DATABASE CLI -----
-1. Add Movie
-2. View Movies
-3. Update Movie
-4. Delete a Movie
-5. Search a Movie
-6. Display Total Movie Records
-7. Exit
-Choose an option (1-6): <span class="user">6</span>
-
-Total movies in database: 5
-
-        </code></pre>
-      </div>
-
-      
+  </code></pre>
+</div>
+      <h3>Output GUI</h3>
+       <div>
+        <img src="https://raw.githubusercontent.com/Bulanadi-MarkLorence-04/7OOP-Porfolio1.0/main/assets/pics/outgui.PNG" alt="GUI sample">
+       </di>
     </section>
       <a class="btn" href="https://bulanadi-marklorence-04.github.io/7OOP-Porfolio1.0/index.html">← Back to Portfolio</a>
 
